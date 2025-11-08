@@ -885,6 +885,12 @@
             transform: translateY(-3px);
         }
 
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1344,7 +1350,7 @@
     </div>
 
     <script>
-        // Stary AI Assistant Functionality
+        // Stary AI Assistant with Google Gemini API Integration
         document.addEventListener('DOMContentLoaded', function() {
             const staryToggle = document.querySelector('.stary-toggle');
             const staryChat = document.querySelector('.stary-chat');
@@ -1353,6 +1359,10 @@
             const starySend = document.querySelector('.stary-send');
             const staryMessages = document.querySelector('.stary-messages');
             const sectionAiButtons = document.querySelectorAll('.section-ai-button');
+
+            // API Configuration
+            const GEMINI_API_KEY = 'AIzaSyDi97UlGzM2eaUR0hmXdY606mqFoybkyrU';
+            const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
             // Toggle chat window
             staryToggle.addEventListener('click', function() {
@@ -1366,23 +1376,30 @@
             });
 
             // Send message function
-            function sendMessage() {
+            async function sendMessage() {
                 const message = staryInput.value.trim();
                 if (message === '') return;
 
                 // Add user message
                 addMessage(message, 'user');
                 staryInput.value = '';
+                starySend.disabled = true;
 
                 // Show typing indicator
                 showTypingIndicator();
 
-                // Generate AI response after a delay
-                setTimeout(() => {
+                try {
+                    // Generate AI response using Gemini API
+                    const response = await generateGeminiResponse(message);
                     removeTypingIndicator();
-                    const response = generateResponse(message);
                     addMessage(response, 'ai');
-                }, 1500);
+                } catch (error) {
+                    console.error('Error calling Gemini API:', error);
+                    removeTypingIndicator();
+                    addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
+                } finally {
+                    starySend.disabled = false;
+                }
             }
 
             // Send message on button click
@@ -1398,7 +1415,10 @@
             // Add message to chat
             function addMessage(text, sender) {
                 const messageElement = document.createElement('div');
-                messageElement.classList.add('message', sender);
+                messageElement.classList.add('message', sender.split(' ')[0]);
+                if (sender.includes('error')) {
+                    messageElement.classList.add('error-message');
+                }
                 messageElement.textContent = text;
                 staryMessages.appendChild(messageElement);
                 staryMessages.scrollTop = staryMessages.scrollHeight;
@@ -1434,73 +1454,94 @@
                     const section = this.getAttribute('data-section');
                     staryChat.classList.add('active');
                     
-                    // Show typing indicator
+                    let sectionMessage = '';
+                    switch(section) {
+                        case 'hero':
+                            sectionMessage = "Tell me about Star Development's services and the $4 pricing model.";
+                            break;
+                        case 'features':
+                            sectionMessage = "What makes Star Development different from other web development companies?";
+                            break;
+                        case 'systems':
+                            sectionMessage = "Can you explain the different systems Star Development offers, like CAD/MDT, Department Database, and Logging systems?";
+                            break;
+                        default:
+                            sectionMessage = "Tell me about Star Development.";
+                    }
+                    
+                    // Add the section-specific message and send it
+                    addMessage(sectionMessage, 'user');
                     showTypingIndicator();
                     
-                    // Generate section-specific response after a delay
-                    setTimeout(() => {
-                        removeTypingIndicator();
-                        const response = generateSectionResponse(section);
-                        addMessage(response, 'ai');
-                    }, 1000);
+                    // Generate AI response
+                    setTimeout(async () => {
+                        try {
+                            const response = await generateGeminiResponse(sectionMessage);
+                            removeTypingIndicator();
+                            addMessage(response, 'ai');
+                        } catch (error) {
+                            console.error('Error calling Gemini API:', error);
+                            removeTypingIndicator();
+                            addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
+                        }
+                    }, 500);
                 });
             });
 
-            // Generate AI response based on user input
-            function generateResponse(userMessage) {
-                const lowerMessage = userMessage.toLowerCase();
-                
-                // Company information responses
-                if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-                    return "Hello! I'm Stary, your AI assistant for Star Development. How can I help you learn more about our premium web systems and services?";
-                }
-                
-                if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('$')) {
-                    return "Star Development offers an unprecedented pricing model starting at just $4 for any site or system! This fixed-cost approach makes custom software development accessible to everyone. For more complex customizations, we offer affordable upsells while maintaining our core value of radical affordability.";
-                }
-                
-                if (lowerMessage.includes('service') || lowerMessage.includes('what do you do')) {
-                    return "Star Development specializes in two main service areas:\n\n1. Simple Sites: Standard websites like portfolios, small business pages, and basic online shops.\n\n2. Systems: Our core expertise - custom web applications like CAD/MDT systems for roleplay communities, department databases, and logging systems that automate complex processes.\n\nWe focus on niche communities often overlooked by larger agencies.";
-                }
-                
-                if (lowerMessage.includes('system') || lowerMessage.includes('cad') || lowerMessage.includes('mdt')) {
-                    return "Our Systems are custom web applications designed to automate and streamline complex processes. Key examples include:\n\n• 911 CAD/MDT System: For roleplay communities with live dispatch, unit tracking, and citation systems\n• Department Database: Centralized records management for government factions\n• Logging System: Automated audit trails for transparency and administrative review\n\nThese are database-driven applications with user interfaces for specific operational purposes.";
-                }
-                
-                if (lowerMessage.includes('contact') || lowerMessage.includes('support') || lowerMessage.includes('email')) {
-                    return "For additional support, you can email our dedicated teams:\n\n• General Support: hello.company.helpdesk@gmail.com (for sales and general questions)\n• Technical Support: help.pro.tech.assist@gmail.com (for technical issues)\n\nYou can also join our Discord community or follow us on social media for updates and community support.";
-                }
-                
-                if (lowerMessage.includes('community') || lowerMessage.includes('roleplay') || lowerMessage.includes('fivem')) {
-                    return "Star Development has deep expertise in serving online roleplaying communities, particularly those on platforms like FiveM. We understand their unique needs for custom tools like CAD systems, databases, and logging systems that enhance gameplay realism and community management. Our affordable pricing makes these powerful tools accessible to communities with limited budgets.";
-                }
-                
-                if (lowerMessage.includes('how') && lowerMessage.includes('work')) {
-                    return "Our process is simple:\n\n1. You tell us what system or website you need\n2. We provide a fixed $4 quote for the base system\n3. Our team builds your custom solution using reusable components\n4. We deploy and provide ongoing support\n\nThe $4 model works because we specialize in niche systems and reuse code components across clients, drastically reducing development time while maintaining quality.";
-                }
-                
-                if (lowerMessage.includes('feature') || lowerMessage.includes('different')) {
-                    return "What makes Star Development unique is our combination of:\n\n• Hyper-Specialization: We focus exclusively on complex web applications for specific niche communities\n• Fixed-Cost Pricing: Revolutionary $4 pricing that removes financial barriers\n• Community Focus: Deep understanding of our target customers' needs and limitations\n\nUnlike generic developers, we're specialists who understand both the technical and community aspects of our systems.";
-                }
-                
-                // Default response
-                return "I'd be happy to tell you more about Star Development! We're a specialized web development company offering premium systems at unprecedented prices starting at just $4. We focus on creating custom web applications for niche communities and small businesses. What specific aspect would you like to know more about - our services, pricing, systems, or something else?";
-            }
+            // Generate response using Google Gemini API
+            async function generateGeminiResponse(userMessage) {
+                // Create the context for the AI
+                const context = `
+                    You are Stary, the AI assistant for Star Development. Star Development is a web development company that specializes in creating custom web systems for niche communities, particularly online roleplaying communities like FiveM. 
 
-            // Generate section-specific responses
-            function generateSectionResponse(section) {
-                switch(section) {
-                    case 'hero':
-                        return "This section introduces Star Development and our revolutionary approach to web development. We specialize in creating premium web systems for niche communities at unprecedented prices starting at just $4. Our focus is on making powerful custom software accessible to everyone, particularly online roleplaying communities and small businesses that are often overlooked by larger agencies.";
-                    
-                    case 'features':
-                        return "Our unique features include:\n\n• Hyper-Specialization: We focus exclusively on complex, database-driven web applications for specific communities\n• Fixed-Cost Pricing: Our $4 pricing model removes financial anxiety and makes custom development accessible\n• Community Focus: Deep understanding of online roleplaying communities and their specific needs\n\nThese features combined create a unique value proposition in the web development market.";
-                    
-                    case 'systems':
-                        return "Our specialized systems are custom web applications designed to automate and manage complex processes:\n\n• 911 CAD/MDT System: Comprehensive dispatch and records management for roleplay communities\n• Department Database: Centralized records management for government factions\n• Logging System: Automated audit trails for transparency and administrative review\n\nThese systems go beyond simple websites - they're functional software tools with user interfaces, databases, and specific operational purposes.";
-                    
-                    default:
-                        return "I'd be happy to explain this section! Star Development creates premium web systems for niche communities at unprecedented prices. What specific aspect would you like me to elaborate on?";
+                    Key Company Information:
+                    - Pricing: Starts at $4 for any site or system
+                    - Specialization: Complex, database-driven web applications ("Systems")
+                    - Target Audience: Online roleplaying communities and small businesses
+                    - Core Services: 
+                      * Simple Websites (standard sites, portfolios, small business pages)
+                      * Systems (custom web applications like CAD/MDT, Department Databases, Logging Systems)
+                    - Unique Selling Points: Hyper-specialization in niche markets, fixed-cost pricing, community focus
+                    - Support: General support (hello.company.helpdesk@gmail.com), Technical support (help.pro.tech.assist@gmail.com)
+                    - Social Media: @1StarDEV on Twitter, 1stardev on Instagram, Discord community
+
+                    Important: Always be helpful, professional, and redirect users to email support if they need specific technical help or custom quotes. Never offer human handoffs - only email redirects.
+
+                    User's question: ${userMessage}
+                `;
+
+                const requestBody = {
+                    contents: [{
+                        parts: [{
+                            text: context
+                        }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        topK: 40,
+                        topP: 0.95,
+                        maxOutputTokens: 1024,
+                    }
+                };
+
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    return data.candidates[0].content.parts[0].text;
+                } else {
+                    throw new Error('Invalid response format from Gemini API');
                 }
             }
 
@@ -1549,14 +1590,12 @@
             }, observerOptions);
 
             // Observe elements for animation
-            document.addEventListener('DOMContentLoaded', function() {
-                const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
-                animatedElements.forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(30px)';
-                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    observer.observe(el);
-                });
+            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
             });
 
             // Add hover effect to CTA buttons
