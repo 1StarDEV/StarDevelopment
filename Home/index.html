@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Development - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+        }
+        
+        .logo {
+            margin-bottom: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, #4a90e2, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .logo p {
+            font-size: 1.2rem;
+            color: #aaa;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+        
+        .construction-icon {
+            font-size: 5rem;
+            margin: 2rem 0;
+            color: #4a90e2;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .message {
+            margin: 2rem 0;
+        }
+        
+        .message h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .message p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a90e2;
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .social-links {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        
+        .social-links p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s, color 0.3s;
+            width: 100px;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            color: #4a90e2;
+        }
+        
+        .social-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover .social-icon {
+            background: rgba(74, 144, 226, 0.2);
+        }
+        
+        .social-name {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+            
+            .message h2 {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+            
+            .countdown-icon {
+                font-size: 2rem;
+            }
+            
+            .social-icons {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 80px;
+            }
+            
+            .social-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="logo">
+            <h1>STAR DEVELOPMENT</h1>
+            <p>Building The Future</p>
+        </div>
+        
+        <div class="construction-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+        
+        <div class="message">
+            <h2>Website Under Construction</h2>
+            <p>We are working hard to bring you an exceptional digital experience. Our new website will be launching soon with innovative solutions for your business.</p>
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-icon">
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                <div class="countdown-value" id="days">03</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-icon">
+                    <i class="fas fa-stopwatch"></i>
+                </div>
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <p>Follow us for updates</p>
+            <div class="social-icons">
+                <a href="https://twitter.com/1StarDEV" class="social-link" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="social-name">Twitter</div>
+                </a>
+                <a href="https://instagram.com/1stardev" class="social-link" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-name">Instagram</div>
+                </a>
+                <a href="https://discord.gg/UWeT2bnHrN" class="social-link" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="social-name">Discord</div>
+                </a>
+                <a href="https://tiktok.com/@1star.dev" class="social-link" target="_blank">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="social-name">TikTok</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create stars in the background
+        const starsContainer = document.getElementById('stars');
+        const starCount = 150;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            // Random size
+            const size = Math.random() * 3;
+            
+            // Random animation delay
+            const delay = Math.random() * 3;
+            
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDelay = `${delay}s`;
+            
+            starsContainer.appendChild(star);
+        }
+        
+        // Countdown timer - set to 3 days from now
+        function updateCountdown() {
+            const now = new Date();
+            const launchDate = new Date(now);
+            launchDate.setDate(now.getDate() + 3);
+            launchDate.setHours(0, 0, 0, 0);
+            
+            const timeRemaining = launchDate - now;
+            
+            if (timeRemaining <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
