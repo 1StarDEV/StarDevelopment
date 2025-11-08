@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Development | Premium Web Systems at Unprecedented Prices</title>
+    <title>Star Development | Premium Web Systems</title>
+    <link rel="icon" type="image/x-icon" href="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -12,10 +13,9 @@
             --secondary-silver: #e9ecef;
             --accent-silver: #dee2e6;
             --dark-silver: #adb5bd;
+            --darker-silver: #6c757d;
             --text-dark: #212529;
             --text-light: #6c757d;
-            --star-blue: #0077b6;
-            --star-gold: #ffd166;
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.12);
@@ -81,9 +81,7 @@
         .logo-text {
             font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-dark), var(--star-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-dark);
         }
 
         nav ul {
@@ -109,13 +107,13 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--star-blue), var(--star-gold));
+            background: var(--text-dark);
             transition: var(--transition);
             border-radius: 3px;
         }
 
         nav a:hover {
-            color: var(--star-blue);
+            color: var(--darker-silver);
         }
 
         nav a:hover:after {
@@ -123,7 +121,7 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, var(--star-blue), #005b8f);
+            background: var(--text-dark);
             color: white;
             border: none;
             padding: 0.9rem 2rem;
@@ -132,7 +130,7 @@
             font-size: 1.05rem;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 119, 182, 0.25);
+            box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -140,17 +138,18 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 119, 182, 0.35);
+            box-shadow: var(--shadow-hover);
+            background: #000;
         }
 
         .cta-button.secondary {
-            background: linear-gradient(135deg, var(--star-gold), #ffb700);
+            background: white;
             color: var(--text-dark);
-            box-shadow: 0 6px 20px rgba(255, 209, 102, 0.3);
+            border: 1px solid var(--accent-silver);
         }
 
         .cta-button.secondary:hover {
-            box-shadow: 0 12px 25px rgba(255, 209, 102, 0.4);
+            background: var(--primary-silver);
         }
 
         /* Hero Section */
@@ -192,9 +191,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-dark), var(--star-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-dark);
         }
 
         .hero-text p {
@@ -207,20 +204,22 @@
         .price-tag {
             display: inline-flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--star-gold), #ffb700);
+            background: white;
             color: var(--text-dark);
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 800;
             font-size: 1.8rem;
             margin-bottom: 2.5rem;
-            box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+            box-shadow: var(--shadow);
             animation: pulse 2.5s infinite;
             gap: 0.5rem;
+            border: 1px solid var(--accent-silver);
         }
 
         .price-tag i {
             font-size: 1.5rem;
+            color: var(--darker-silver);
         }
 
         .button-group {
@@ -273,9 +272,7 @@
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1.2rem;
-            background: linear-gradient(135deg, var(--star-blue), var(--star-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--darker-silver);
         }
 
         .floating-card h3 {
@@ -326,18 +323,14 @@
         .stat-icon {
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--star-blue), var(--star-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--darker-silver);
         }
 
         .stat-number {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--star-blue), var(--star-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-dark);
         }
 
         .stat-text {
@@ -361,9 +354,7 @@
         .section-header h2 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-dark), var(--star-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-dark);
         }
 
         .section-header p {
@@ -396,7 +387,7 @@
             left: 0;
             width: 6px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--star-blue), var(--star-gold));
+            background: var(--text-dark);
             transition: var(--transition);
         }
 
@@ -413,9 +404,7 @@
         .feature-icon {
             font-size: 3rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--star-blue), var(--star-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--darker-silver);
         }
 
         .feature-card h3 {
@@ -433,7 +422,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--star-blue);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
@@ -441,6 +430,7 @@
 
         .feature-link:hover {
             gap: 1rem;
+            color: var(--darker-silver);
         }
 
         /* Systems Showcase */
@@ -473,7 +463,7 @@
 
         .system-visual {
             height: 220px;
-            background: linear-gradient(135deg, var(--star-blue), #005b8f);
+            background: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -490,7 +480,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(255,209,102,0.2), transparent);
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
         }
 
         .system-content {
@@ -521,7 +511,7 @@
         }
 
         .system-features i {
-            color: var(--star-gold);
+            color: var(--darker-silver);
         }
 
         /* Testimonials */
@@ -562,7 +552,7 @@
         .testimonial-content:before {
             content: '"';
             font-size: 5rem;
-            color: var(--star-gold);
+            color: var(--darker-silver);
             position: absolute;
             top: -2rem;
             left: -1rem;
@@ -580,7 +570,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--star-blue), var(--star-gold));
+            background: var(--text-dark);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -592,6 +582,7 @@
         .author-info h4 {
             font-size: 1.2rem;
             margin-bottom: 0.3rem;
+            color: var(--text-dark);
         }
 
         .author-info p {
@@ -602,7 +593,7 @@
         /* CTA Section */
         .cta-section {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, var(--text-dark) 0%, #343a40 100%);
+            background: var(--text-dark);
             color: white;
             text-align: center;
             position: relative;
@@ -661,7 +652,7 @@
         }
 
         .social-link:hover {
-            background: var(--star-blue);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px) scale(1.1);
         }
 
@@ -694,7 +685,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, var(--star-blue), var(--star-gold));
+            background: white;
             border-radius: 3px;
         }
 
@@ -761,13 +752,13 @@
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+                box-shadow: var(--shadow);
             }
             50% {
-                box-shadow: 0 8px 35px rgba(255, 209, 102, 0.6);
+                box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
             }
             100% {
-                box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+                box-shadow: var(--shadow);
             }
         }
 
