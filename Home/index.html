@@ -468,9 +468,15 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 3.5rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .system-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
 
         .system-visual:after {
@@ -512,82 +518,6 @@
 
         .system-features i {
             color: var(--darker-silver);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 8rem 2rem;
-            background: var(--secondary-silver);
-        }
-
-        .testimonials-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--accent-silver);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-            position: relative;
-        }
-
-        .testimonial-content:before {
-            content: '"';
-            font-size: 5rem;
-            color: var(--darker-silver);
-            position: absolute;
-            top: -2rem;
-            left: -1rem;
-            opacity: 0.3;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--text-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .author-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-dark);
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.95rem;
         }
 
         /* CTA Section */
@@ -812,7 +742,7 @@
                 justify-content: center;
             }
 
-            .features-grid, .systems-grid, .testimonials-grid {
+            .features-grid, .systems-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -831,7 +761,6 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#systems">Systems</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
@@ -973,7 +902,7 @@
         <div class="systems-grid">
             <div class="system-card">
                 <div class="system-visual">
-                    <i class="fas fa-car-crash"></i>
+                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="911 CAD/MDT System">
                 </div>
                 <div class="system-content">
                     <h3>911 CAD/MDT System</h3>
@@ -992,7 +921,7 @@
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <i class="fas fa-database"></i>
+                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
                 </div>
                 <div class="system-content">
                     <h3>Department Database</h3>
@@ -1011,7 +940,7 @@
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <i class="fas fa-clipboard-list"></i>
+                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
                 </div>
                 <div class="system-content">
                     <h3>Logging System</h3>
@@ -1026,52 +955,6 @@
                         <i class="fas fa-eye"></i>
                         View Details
                     </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header">
-            <h2>What Our Communities Say</h2>
-            <p>Don't just take our word for it - hear from the communities we've helped transform</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    Star Development completely transformed our FiveM community. Their CAD/MDT system is incredibly robust and has streamlined our roleplay operations significantly. The best part? It cost us just a fraction of what other developers quoted.
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">JD</div>
-                    <div class="author-info">
-                        <h4>John Davis</h4>
-                        <p>San Andreas Roleplay Community</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    We were struggling with player management until we found Star Development. Their logging system has brought transparency to our admin team and helped resolve disputes efficiently. The $4 pricing is unbelievable for such a quality product.
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SR</div>
-                    <div class="author-info">
-                        <h4>Sarah Rodriguez</h4>
-                        <p>Liberty City RP Server</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    As a small business owner, I couldn't believe I could get a custom inventory system for just $4. Star Development delivered beyond my expectations. The system is intuitive, reliable, and has saved me countless hours of manual work.
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MT</div>
-                    <div class="author-info">
-                        <h4>Michael Thompson</h4>
-                        <p>Small Business Owner</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1193,7 +1076,7 @@
 
         // Observe elements for animation
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .testimonial-card, .stat-card');
+            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
@@ -1210,6 +1093,17 @@
             
             button.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add hover effect to system images
+        document.querySelectorAll('.system-visual img').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
             });
         });
     </script>
