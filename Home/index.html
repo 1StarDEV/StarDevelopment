@@ -656,6 +656,235 @@
             font-size: 0.95rem;
         }
 
+        /* Stary AI Assistant */
+        .stary-assistant {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stary-toggle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--text-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stary-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stary-toggle.pulsing::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            animation: pulse-ring 2s infinite;
+        }
+
+        .stary-chat {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 380px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: var(--transition);
+            border: 1px solid var(--accent-silver);
+        }
+
+        .stary-chat.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .stary-header {
+            background: var(--text-dark);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stary-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+        }
+
+        .stary-title i {
+            font-size: 1.3rem;
+        }
+
+        .stary-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .stary-close:hover {
+            transform: scale(1.1);
+        }
+
+        .stary-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 0.9rem 1.2rem;
+            border-radius: 18px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            animation: messageAppear 0.3s ease-out;
+        }
+
+        .message.ai {
+            background: var(--primary-silver);
+            color: var(--text-dark);
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: var(--text-dark);
+            color: white;
+            border-bottom-right-radius: 5px;
+            align-self: flex-end;
+        }
+
+        .stary-input-container {
+            padding: 1.2rem;
+            border-top: 1px solid var(--accent-silver);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .stary-input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--accent-silver);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .stary-input:focus {
+            border-color: var(--darker-silver);
+        }
+
+        .stary-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .stary-send:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
+        .stary-send:disabled {
+            background: var(--accent-silver);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .stary-typing {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--primary-silver);
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+            max-width: 85%;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--text-light);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: 0s; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        .section-ai-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .section-ai-button:hover {
+            background: #000;
+            transform: translateY(-3px);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -689,6 +918,37 @@
             }
             100% {
                 box-shadow: var(--shadow);
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-5px);
             }
         }
 
@@ -745,6 +1005,19 @@
             .features-grid, .systems-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stary-chat {
+                width: 320px;
+                height: 450px;
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stary-chat {
+                width: 300px;
+                right: -20px;
+            }
         }
     </style>
 </head>
@@ -792,6 +1065,10 @@
                         How It Works
                     </button>
                 </div>
+                <button class="section-ai-button" data-section="hero">
+                    <i class="fas fa-robot"></i>
+                    Ask Stary about our services
+                </button>
             </div>
             <div class="hero-visual">
                 <div class="floating-card card-1">
@@ -858,6 +1135,10 @@
         <div class="section-header">
             <h2>What Makes Us Different</h2>
             <p>Our unique approach combines specialized expertise with radical affordability to deliver exceptional value</p>
+            <button class="section-ai-button" data-section="features">
+                <i class="fas fa-robot"></i>
+                Ask Stary about our features
+            </button>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -898,6 +1179,10 @@
         <div class="section-header">
             <h2>Our Specialized Systems</h2>
             <p>Custom-built applications designed to automate, manage, and streamline complex processes for your community</p>
+            <button class="section-ai-button" data-section="systems">
+                <i class="fas fa-robot"></i>
+                Ask Stary about our systems
+            </button>
         </div>
         <div class="systems-grid">
             <div class="system-card">
@@ -1029,81 +1314,271 @@
         </div>
     </footer>
 
+    <!-- Stary AI Assistant -->
+    <div class="stary-assistant">
+        <button class="stary-toggle pulsing">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="stary-chat">
+            <div class="stary-header">
+                <div class="stary-title">
+                    <i class="fas fa-robot"></i>
+                    Stary AI Assistant
+                </div>
+                <button class="stary-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="stary-messages">
+                <div class="message ai">
+                    Hello! I'm Stary, your AI assistant for Star Development. I can answer questions about our services, systems, pricing, and help you get started. How can I assist you today?
+                </div>
+            </div>
+            <div class="stary-input-container">
+                <input type="text" class="stary-input" placeholder="Ask me anything about Star Development...">
+                <button class="stary-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(248, 249, 250, 0.98)';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
-            } else {
-                header.style.background = 'rgba(248, 249, 250, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
+        // Stary AI Assistant Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        });
+            const staryToggle = document.querySelector('.stary-toggle');
+            const staryChat = document.querySelector('.stary-chat');
+            const staryClose = document.querySelector('.stary-close');
+            const staryInput = document.querySelector('.stary-input');
+            const starySend = document.querySelector('.stary-send');
+            const staryMessages = document.querySelector('.stary-messages');
+            const sectionAiButtons = document.querySelectorAll('.section-ai-button');
 
-        // Add hover effect to CTA buttons
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
+            // Toggle chat window
+            staryToggle.addEventListener('click', function() {
+                staryChat.classList.toggle('active');
+                staryToggle.classList.remove('pulsing');
             });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
 
-        // Add hover effect to system images
-        document.querySelectorAll('.system-visual img').forEach(img => {
-            img.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
+            // Close chat window
+            staryClose.addEventListener('click', function() {
+                staryChat.classList.remove('active');
             });
-            
-            img.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
+
+            // Send message function
+            function sendMessage() {
+                const message = staryInput.value.trim();
+                if (message === '') return;
+
+                // Add user message
+                addMessage(message, 'user');
+                staryInput.value = '';
+
+                // Show typing indicator
+                showTypingIndicator();
+
+                // Generate AI response after a delay
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    const response = generateResponse(message);
+                    addMessage(response, 'ai');
+                }, 1500);
+            }
+
+            // Send message on button click
+            starySend.addEventListener('click', sendMessage);
+
+            // Send message on Enter key
+            staryInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Add message to chat
+            function addMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = text;
+                staryMessages.appendChild(messageElement);
+                staryMessages.scrollTop = staryMessages.scrollHeight;
+            }
+
+            // Show typing indicator
+            function showTypingIndicator() {
+                const typingElement = document.createElement('div');
+                typingElement.classList.add('stary-typing');
+                typingElement.innerHTML = `
+                    Stary is typing
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                `;
+                staryMessages.appendChild(typingElement);
+                staryMessages.scrollTop = staryMessages.scrollHeight;
+            }
+
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const typingElement = document.querySelector('.stary-typing');
+                if (typingElement) {
+                    typingElement.remove();
+                }
+            }
+
+            // Section AI buttons
+            sectionAiButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    staryChat.classList.add('active');
+                    
+                    // Show typing indicator
+                    showTypingIndicator();
+                    
+                    // Generate section-specific response after a delay
+                    setTimeout(() => {
+                        removeTypingIndicator();
+                        const response = generateSectionResponse(section);
+                        addMessage(response, 'ai');
+                    }, 1000);
+                });
+            });
+
+            // Generate AI response based on user input
+            function generateResponse(userMessage) {
+                const lowerMessage = userMessage.toLowerCase();
+                
+                // Company information responses
+                if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+                    return "Hello! I'm Stary, your AI assistant for Star Development. How can I help you learn more about our premium web systems and services?";
+                }
+                
+                if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('$')) {
+                    return "Star Development offers an unprecedented pricing model starting at just $4 for any site or system! This fixed-cost approach makes custom software development accessible to everyone. For more complex customizations, we offer affordable upsells while maintaining our core value of radical affordability.";
+                }
+                
+                if (lowerMessage.includes('service') || lowerMessage.includes('what do you do')) {
+                    return "Star Development specializes in two main service areas:\n\n1. Simple Sites: Standard websites like portfolios, small business pages, and basic online shops.\n\n2. Systems: Our core expertise - custom web applications like CAD/MDT systems for roleplay communities, department databases, and logging systems that automate complex processes.\n\nWe focus on niche communities often overlooked by larger agencies.";
+                }
+                
+                if (lowerMessage.includes('system') || lowerMessage.includes('cad') || lowerMessage.includes('mdt')) {
+                    return "Our Systems are custom web applications designed to automate and streamline complex processes. Key examples include:\n\n• 911 CAD/MDT System: For roleplay communities with live dispatch, unit tracking, and citation systems\n• Department Database: Centralized records management for government factions\n• Logging System: Automated audit trails for transparency and administrative review\n\nThese are database-driven applications with user interfaces for specific operational purposes.";
+                }
+                
+                if (lowerMessage.includes('contact') || lowerMessage.includes('support') || lowerMessage.includes('email')) {
+                    return "For additional support, you can email our dedicated teams:\n\n• General Support: hello.company.helpdesk@gmail.com (for sales and general questions)\n• Technical Support: help.pro.tech.assist@gmail.com (for technical issues)\n\nYou can also join our Discord community or follow us on social media for updates and community support.";
+                }
+                
+                if (lowerMessage.includes('community') || lowerMessage.includes('roleplay') || lowerMessage.includes('fivem')) {
+                    return "Star Development has deep expertise in serving online roleplaying communities, particularly those on platforms like FiveM. We understand their unique needs for custom tools like CAD systems, databases, and logging systems that enhance gameplay realism and community management. Our affordable pricing makes these powerful tools accessible to communities with limited budgets.";
+                }
+                
+                if (lowerMessage.includes('how') && lowerMessage.includes('work')) {
+                    return "Our process is simple:\n\n1. You tell us what system or website you need\n2. We provide a fixed $4 quote for the base system\n3. Our team builds your custom solution using reusable components\n4. We deploy and provide ongoing support\n\nThe $4 model works because we specialize in niche systems and reuse code components across clients, drastically reducing development time while maintaining quality.";
+                }
+                
+                if (lowerMessage.includes('feature') || lowerMessage.includes('different')) {
+                    return "What makes Star Development unique is our combination of:\n\n• Hyper-Specialization: We focus exclusively on complex web applications for specific niche communities\n• Fixed-Cost Pricing: Revolutionary $4 pricing that removes financial barriers\n• Community Focus: Deep understanding of our target customers' needs and limitations\n\nUnlike generic developers, we're specialists who understand both the technical and community aspects of our systems.";
+                }
+                
+                // Default response
+                return "I'd be happy to tell you more about Star Development! We're a specialized web development company offering premium systems at unprecedented prices starting at just $4. We focus on creating custom web applications for niche communities and small businesses. What specific aspect would you like to know more about - our services, pricing, systems, or something else?";
+            }
+
+            // Generate section-specific responses
+            function generateSectionResponse(section) {
+                switch(section) {
+                    case 'hero':
+                        return "This section introduces Star Development and our revolutionary approach to web development. We specialize in creating premium web systems for niche communities at unprecedented prices starting at just $4. Our focus is on making powerful custom software accessible to everyone, particularly online roleplaying communities and small businesses that are often overlooked by larger agencies.";
+                    
+                    case 'features':
+                        return "Our unique features include:\n\n• Hyper-Specialization: We focus exclusively on complex, database-driven web applications for specific communities\n• Fixed-Cost Pricing: Our $4 pricing model removes financial anxiety and makes custom development accessible\n• Community Focus: Deep understanding of online roleplaying communities and their specific needs\n\nThese features combined create a unique value proposition in the web development market.";
+                    
+                    case 'systems':
+                        return "Our specialized systems are custom web applications designed to automate and manage complex processes:\n\n• 911 CAD/MDT System: Comprehensive dispatch and records management for roleplay communities\n• Department Database: Centralized records management for government factions\n• Logging System: Automated audit trails for transparency and administrative review\n\nThese systems go beyond simple websites - they're functional software tools with user interfaces, databases, and specific operational purposes.";
+                    
+                    default:
+                        return "I'd be happy to explain this section! Star Development creates premium web systems for niche communities at unprecedented prices. What specific aspect would you like me to elaborate on?";
+                }
+            }
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(248, 249, 250, 0.98)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
+                } else {
+                    header.style.background = 'rgba(248, 249, 250, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.addEventListener('DOMContentLoaded', function() {
+                const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
+                animatedElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(el);
+                });
+            });
+
+            // Add hover effect to CTA buttons
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add hover effect to system images
+            document.querySelectorAll('.system-visual img').forEach(img => {
+                img.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                img.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
             });
         });
     </script>
