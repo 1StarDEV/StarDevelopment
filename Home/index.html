@@ -331,10 +331,42 @@
             font-size: 0.95rem;
         }
 
+        /* Stats */
+        .stats {
+            padding: 6rem 2rem;
+            background: var(--secondary-silver);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
         /* Systems */
         .systems {
             padding: 6rem 2rem;
-            background: var(--secondary-silver);
+            background: white;
         }
 
         .systems-grid {
@@ -390,38 +422,6 @@
             color: var(--text-light);
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
-        }
-
-        /* Stats */
-        .stats {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 500;
         }
 
         /* Process */
@@ -487,62 +487,6 @@
         .step p {
             color: var(--text-light);
             font-size: 0.9rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--primary-silver);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--accent-silver);
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--dark-silver);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-        }
-
-        .author-info h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            font-size: 0.85rem;
-            color: var(--text-light);
         }
 
         /* CTA */
@@ -829,31 +773,31 @@
         <div class="systems-grid">
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-Commerce System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="CAD/MDT System">
                 </div>
                 <div class="system-content">
-                    <h3>E-Commerce Platforms</h3>
-                    <p>Complete online store solutions with inventory management, payment processing, and customer analytics.</p>
+                    <h3>911 CAD/MDT System</h3>
+                    <p>Comprehensive dispatch and records management for roleplay communities with live maps and unit tracking.</p>
                     <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Community Platform">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
                 </div>
                 <div class="system-content">
-                    <h3>Community Platforms</h3>
-                    <p>Custom social networks and community hubs with user profiles, forums, and moderation tools.</p>
+                    <h3>Department Database</h3>
+                    <p>Centralized records management for government factions with employee rosters and legal statutes.</p>
                     <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Database System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
                 </div>
                 <div class="system-content">
-                    <h3>Database Systems</h3>
-                    <p>Custom database solutions for managing complex data relationships with intuitive interfaces.</p>
+                    <h3>Logging System</h3>
+                    <p>Automated audit trails and records for transparency, tracking administrative actions and transactions.</p>
                     <button class="cta-button">View Details</button>
                 </div>
             </div>
@@ -890,52 +834,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="section-header">
-            <h2>What Our Clients Say</h2>
-            <p>Hear from communities and businesses who have transformed their online presence</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Star Development delivered an incredible e-commerce platform for our small business. The $4 pricing is unbelievable for the quality we received!"
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">JS</div>
-                    <div class="author-info">
-                        <h4>John Smith</h4>
-                        <p>Small Business Owner</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Our community platform needed a complete overhaul. Star Development understood our needs perfectly and delivered beyond expectations."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MJ</div>
-                    <div class="author-info">
-                        <h4>Maria Johnson</h4>
-                        <p>Community Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "The database system they built for our organization has streamlined our operations dramatically. The support team is incredibly responsive."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">RD</div>
-                    <div class="author-info">
-                        <h4>Robert Davis</h4>
-                        <p>Nonprofit Director</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
@@ -957,7 +855,7 @@
                 <ul>
                     <li><a href="#">Simple Websites</a></li>
                     <li><a href="#">Custom Systems</a></li>
-                    <li><a href="#">E-Commerce</a></li>
+                    <li><a href="#">CAD/MDT Systems</a></li>
                     <li><a href="#">Database Solutions</a></li>
                 </ul>
             </div>
@@ -1002,7 +900,7 @@
             });
             
             // Add scroll animation to elements
-            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-item, .step, .testimonial-card');
+            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-item, .step');
             
             function checkScroll() {
                 animatedElements.forEach(element => {
