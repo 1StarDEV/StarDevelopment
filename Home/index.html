@@ -19,8 +19,6 @@
             --transition: all 0.3s ease;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --star-gold: #ffd700;
-            --highlight: #ff6b6b;
         }
 
         * {
@@ -162,23 +160,6 @@
             font-weight: 400;
         }
 
-        .highlight {
-            color: var(--highlight);
-            position: relative;
-        }
-
-        .highlight:after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--star-gold);
-            opacity: 0.4;
-            z-index: -1;
-        }
-
         .price-tag {
             display: inline-flex;
             align-items: center;
@@ -267,26 +248,6 @@
             text-align: center;
         }
 
-        /* Typing Animation */
-        .typing-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .typing-text {
-            display: inline;
-        }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: var(--text-dark);
-            margin-left: 2px;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-
         /* Features */
         .features {
             padding: 6rem 2rem;
@@ -338,7 +299,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--star-gold), var(--highlight));
+            background: var(--text-dark);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -431,10 +392,42 @@
             font-size: 0.95rem;
         }
 
+        /* Stats */
+        .stats {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
         /* Process */
         .process {
             padding: 6rem 2rem;
-            background: white;
+            background: var(--secondary-silver);
         }
 
         .process-steps {
@@ -496,32 +489,73 @@
             font-size: 0.9rem;
         }
 
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--primary-silver);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-silver);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-silver);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
         /* CTA */
         .cta-section {
             padding: 6rem 2rem;
             background: var(--text-dark);
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0) 70%);
-            animation: rotate 20s linear infinite;
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
 
         .cta-section h2 {
@@ -602,20 +636,6 @@
             }
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -653,6 +673,10 @@
             .process-steps:before {
                 display: none;
             }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -681,11 +705,8 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>
-                    <span class="typing-container">
-                        <span class="typing-text">The <span class="highlight">Best</span> Sites</span>
-                        <span class="typing-cursor"></span>
-                    </span>
-                    <br>at Unprecedented Prices
+                    The Best Sites<br>
+                    at Unprecedented Prices
                 </h1>
                 <p>Star Development specializes in creating sophisticated, custom web systems for communities and businesses of all types.</p>
                 <div class="price-tag">
@@ -725,6 +746,28 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$4</div>
+                <div class="stat-label">Starting Price</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features -->
     <section class="features" id="features">
         <div class="section-header">
@@ -752,6 +795,27 @@
                 </div>
                 <h3>Community Focused</h3>
                 <p>Deep understanding of online communities with specific needs and limited budgets.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Lightning Fast</h3>
+                <p>Optimized performance and rapid deployment for all our web systems and applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Secure & Reliable</h3>
+                <p>Enterprise-grade security measures to protect your data and ensure system integrity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <h3>Continuous Updates</h3>
+                <p>Regular feature enhancements and security updates to keep your systems current.</p>
             </div>
         </div>
     </section>
@@ -826,6 +890,52 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>What Our Clients Say</h2>
+            <p>Hear from communities and businesses who have transformed their online presence</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Star Development delivered an incredible e-commerce platform for our small business. The $4 pricing is unbelievable for the quality we received!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JS</div>
+                    <div class="author-info">
+                        <h4>John Smith</h4>
+                        <p>Small Business Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Our community platform needed a complete overhaul. Star Development understood our needs perfectly and delivered beyond expectations."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MJ</div>
+                    <div class="author-info">
+                        <h4>Maria Johnson</h4>
+                        <p>Community Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The database system they built for our organization has streamlined our operations dramatically. The support team is incredibly responsive."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RD</div>
+                    <div class="author-info">
+                        <h4>Robert Davis</h4>
+                        <p>Nonprofit Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
@@ -875,36 +985,8 @@
     </footer>
 
     <script>
-        // Typing animation for hero text
+        // Add scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            const typingText = document.querySelector('.typing-text');
-            const originalText = typingText.innerHTML;
-            
-            function typeText() {
-                typingText.innerHTML = '';
-                let charIndex = 0;
-                
-                function typeChar() {
-                    if (charIndex < originalText.length) {
-                        typingText.innerHTML += originalText.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeChar, 100);
-                    } else {
-                        // Restart animation after a delay
-                        setTimeout(() => {
-                            typeText();
-                        }, 3000);
-                    }
-                }
-                
-                typeChar();
-            }
-            
-            // Start typing animation after a short delay
-            setTimeout(() => {
-                typeText();
-            }, 1000);
-            
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -919,43 +1001,26 @@
                 });
             });
             
-            // Add scroll animation to feature cards
-            const featureCards = document.querySelectorAll('.feature-card');
-            const processSteps = document.querySelectorAll('.step');
+            // Add scroll animation to elements
+            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-item, .step, .testimonial-card');
             
             function checkScroll() {
-                featureCards.forEach(card => {
-                    const cardTop = card.getBoundingClientRect().top;
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
                     
-                    if (cardTop < windowHeight * 0.9) {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-                
-                processSteps.forEach(step => {
-                    const stepTop = step.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (stepTop < windowHeight * 0.85) {
-                        step.style.opacity = '1';
-                        step.style.transform = 'translateY(0)';
+                    if (elementTop < windowHeight * 0.9) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
                     }
                 });
             }
             
             // Initialize elements with hidden state
-            featureCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            processSteps.forEach(step => {
-                step.style.opacity = '0';
-                step.style.transform = 'translateY(20px)';
-                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             });
             
             window.addEventListener('scroll', checkScroll);
