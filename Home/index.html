@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Development | Premium Web Systems</title>
+    <title>Star Development | AI-Powered Web Systems</title>
     <link rel="icon" type="image/x-icon" href="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -656,7 +656,7 @@
             font-size: 0.95rem;
         }
 
-        /* Stary AI Assistant */
+        /* Advanced Stary AI Assistant */
         .stary-assistant {
             position: fixed;
             bottom: 30px;
@@ -704,8 +704,8 @@
             position: absolute;
             bottom: 90px;
             right: 0;
-            width: 380px;
-            height: 500px;
+            width: 420px;
+            height: 580px;
             background: white;
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
@@ -741,6 +741,12 @@
 
         .stary-title i {
             font-size: 1.3rem;
+        }
+
+        .stary-status {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-left: 1rem;
         }
 
         .stary-close {
@@ -788,6 +794,17 @@
             align-self: flex-end;
         }
 
+        .message.system {
+            background: transparent;
+            color: var(--text-light);
+            font-style: italic;
+            align-self: center;
+            max-width: 100%;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+        }
+
         .stary-input-container {
             padding: 1.2rem;
             border-top: 1px solid var(--accent-silver);
@@ -807,6 +824,35 @@
 
         .stary-input:focus {
             border-color: var(--darker-silver);
+        }
+
+        .stary-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .stary-action-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary-silver);
+            color: var(--text-dark);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .stary-action-btn:hover {
+            background: var(--accent-silver);
+            transform: scale(1.05);
+        }
+
+        .stary-action-btn.active {
+            background: var(--text-dark);
+            color: white;
         }
 
         .stary-send {
@@ -865,6 +911,64 @@
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0 1.5rem 1rem;
+        }
+
+        .quick-reply {
+            background: var(--primary-silver);
+            border: 1px solid var(--accent-silver);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-reply:hover {
+            background: var(--text-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .ai-suggestions {
+            background: var(--primary-silver);
+            border-top: 1px solid var(--accent-silver);
+            padding: 1rem 1.5rem;
+        }
+
+        .ai-suggestions h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .suggestion-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .suggestion-card {
+            background: white;
+            border: 1px solid var(--accent-silver);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .suggestion-card:hover {
+            background: var(--text-dark);
+            color: white;
+            transform: translateX(5px);
+        }
+
         .section-ai-button {
             display: inline-flex;
             align-items: center;
@@ -890,6 +994,37 @@
             color: #c62828;
             border: 1px solid #ffcdd2;
         }
+
+        .ai-thinking {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--primary-silver);
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+            max-width: 85%;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .thinking-dots {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .thinking-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-dark);
+            animation: thinking 1.5s infinite ease-in-out;
+        }
+
+        .thinking-dots span:nth-child(1) { animation-delay: 0s; }
+        .thinking-dots span:nth-child(2) { animation-delay: 0.3s; }
+        .thinking-dots span:nth-child(3) { animation-delay: 0.6s; }
 
         /* Animations */
         @keyframes fadeInUp {
@@ -958,6 +1093,17 @@
             }
         }
 
+        @keyframes thinking {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 1100px) {
             .hero-content {
@@ -1013,15 +1159,15 @@
             }
 
             .stary-chat {
-                width: 320px;
-                height: 450px;
+                width: 350px;
+                height: 500px;
                 right: -10px;
             }
         }
 
         @media (max-width: 480px) {
             .stary-chat {
-                width: 300px;
+                width: 320px;
                 right: -20px;
             }
         }
@@ -1055,8 +1201,8 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Premium Web Systems at Unprecedented Prices</h1>
-                <p>Star Development specializes in creating sophisticated, custom web applications for niche communities and small businesses. We make powerful digital tools accessible to everyone.</p>
+                <h1>AI-Powered Web Systems at Unprecedented Prices</h1>
+                <p>Star Development combines advanced AI technology with premium web systems for niche communities. Experience the future of web development with our intelligent solutions.</p>
                 <div class="price-tag">
                     <i class="fas fa-tag"></i>
                     <span>Starting at just $4</span>
@@ -1064,39 +1210,39 @@
                 <div class="button-group">
                     <button class="cta-button">
                         <i class="fas fa-laptop-code"></i>
-                        Explore Our Systems
+                        Explore AI Systems
                     </button>
                     <button class="cta-button secondary">
-                        <i class="fas fa-play-circle"></i>
-                        How It Works
+                        <i class="fas fa-robot"></i>
+                        Meet Stary AI
                     </button>
                 </div>
                 <button class="section-ai-button" data-section="hero">
                     <i class="fas fa-robot"></i>
-                    Ask Stary about our services
+                    Ask Stary about AI features
                 </button>
             </div>
             <div class="hero-visual">
                 <div class="floating-card card-1">
                     <div class="card-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security for all your systems with 99.9% uptime guarantee</p>
+                    <h3>AI-Powered</h3>
+                    <p>Advanced machine learning algorithms enhance all our systems with predictive capabilities</p>
                 </div>
                 <div class="floating-card card-2">
                     <div class="card-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Lightning Fast</h3>
-                    <p>Optimized performance for seamless user experience with sub-second load times</p>
+                    <p>Optimized performance with AI-driven caching and resource management</p>
                 </div>
                 <div class="floating-card card-3">
                     <div class="card-icon">
-                        <i class="fas fa-cogs"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Fully Customizable</h3>
-                    <p>Tailored solutions for your specific needs with unlimited customization options</p>
+                    <h3>AI Security</h3>
+                    <p>Machine learning threat detection and automated security protocols</p>
                 </div>
             </div>
         </div>
@@ -1107,10 +1253,10 @@
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-icon">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-robot"></i>
                 </div>
-                <div class="stat-number">500+</div>
-                <div class="stat-text">Satisfied Communities</div>
+                <div class="stat-number">AI</div>
+                <div class="stat-text">Powered Systems</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
@@ -1124,14 +1270,14 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="stat-number">24/7</div>
-                <div class="stat-text">Support Available</div>
+                <div class="stat-text">AI Support Available</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-dollar-sign"></i>
                 </div>
                 <div class="stat-number">$4</div>
-                <div class="stat-text">Starting Price</div>
+                <div class="stat-text">AI Starting Price</div>
             </div>
         </div>
     </section>
@@ -1139,42 +1285,42 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-header">
-            <h2>What Makes Us Different</h2>
-            <p>Our unique approach combines specialized expertise with radical affordability to deliver exceptional value</p>
+            <h2>Advanced AI Features</h2>
+            <p>Our systems integrate cutting-edge AI technology to deliver unprecedented value and performance</p>
             <button class="section-ai-button" data-section="features">
                 <i class="fas fa-robot"></i>
-                Ask Stary about our features
+                Ask Stary about AI capabilities
             </button>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-bullseye"></i>
+                    <i class="fas fa-brain"></i>
                 </div>
-                <h3>Hyper-Specialization</h3>
-                <p>We focus exclusively on building complex, database-driven web applications for specific communities, a market often overlooked by larger agencies. Our deep understanding of niche requirements ensures perfect solutions.</p>
+                <h3>Predictive Analytics</h3>
+                <p>Our AI systems analyze user behavior to predict needs and optimize performance automatically. Machine learning algorithms continuously improve system responsiveness.</p>
                 <a href="#" class="feature-link">
                     Learn More <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-tags"></i>
+                    <i class="fas fa-comments"></i>
                 </div>
-                <h3>Fixed-Cost Pricing</h3>
-                <p>Our revolutionary "$4 for any site or system" model removes financial anxiety and makes custom software development accessible to all. No hidden fees, no surprise charges - just premium quality at an unprecedented price.</p>
+                <h3>Natural Language Processing</h3>
+                <p>Advanced NLP allows our systems to understand and respond to complex queries in natural language, making interactions intuitive and efficient.</p>
                 <a href="#" class="feature-link">
-                    View Pricing <i class="fas fa-arrow-right"></i>
+                    View Examples <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <h3>Community Focused</h3>
-                <p>We have a deep understanding of our primary customers: online roleplaying communities with specific needs and limited budgets. Our solutions are tailored to enhance community engagement and operational efficiency.</p>
+                <h3>AI-Optimized Performance</h3>
+                <p>Machine learning algorithms continuously monitor and optimize system performance, resource allocation, and response times for peak efficiency.</p>
                 <a href="#" class="feature-link">
-                    Our Communities <i class="fas fa-arrow-right"></i>
+                    See Analytics <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -1183,68 +1329,68 @@
     <!-- Systems Showcase -->
     <section class="systems" id="systems">
         <div class="section-header">
-            <h2>Our Specialized Systems</h2>
-            <p>Custom-built applications designed to automate, manage, and streamline complex processes for your community</p>
+            <h2>AI-Enhanced Systems</h2>
+            <p>Our specialized systems now feature advanced AI capabilities for smarter, more efficient operations</p>
             <button class="section-ai-button" data-section="systems">
                 <i class="fas fa-robot"></i>
-                Ask Stary about our systems
+                Ask Stary about AI systems
             </button>
         </div>
         <div class="systems-grid">
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="911 CAD/MDT System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="AI CAD/MDT System">
                 </div>
                 <div class="system-content">
-                    <h3>911 CAD/MDT System</h3>
-                    <p>Comprehensive dispatch and records management for roleplay communities with live maps, unit tracking, and citation systems.</p>
+                    <h3>AI CAD/MDT System</h3>
+                    <p>Intelligent dispatch system with predictive incident routing and automated resource allocation using machine learning algorithms.</p>
                     <ul class="system-features">
-                        <li><i class="fas fa-check"></i> Live unit tracking and status updates</li>
-                        <li><i class="fas fa-check"></i> Integrated citation and report system</li>
-                        <li><i class="fas fa-check"></i> Real-time map with incident locations</li>
-                        <li><i class="fas fa-check"></i> Cross-platform compatibility</li>
+                        <li><i class="fas fa-check"></i> AI-powered incident prediction</li>
+                        <li><i class="fas fa-check"></i> Automated unit deployment</li>
+                        <li><i class="fas fa-check"></i> Natural language reporting</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
                     </ul>
                     <button class="cta-button">
                         <i class="fas fa-eye"></i>
-                        View Details
+                        View AI Features
                     </button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="AI Department Database">
                 </div>
                 <div class="system-content">
-                    <h3>Department Database</h3>
-                    <p>Centralized records management for government factions with employee rosters, vehicle registrations, and legal statutes.</p>
+                    <h3>AI Department Database</h3>
+                    <p>Smart records management with AI-powered search, pattern recognition, and automated data validation.</p>
                     <ul class="system-features">
-                        <li><i class="fas fa-check"></i> Employee management with ranks</li>
-                        <li><i class="fas fa-check"></i> Vehicle and property registrations</li>
-                        <li><i class="fas fa-check"></i> Legal statute database</li>
-                        <li><i class="fas fa-check"></i> Internal affairs tracking</li>
+                        <li><i class="fas fa-check"></i> AI-powered search and retrieval</li>
+                        <li><i class="fas fa-check"></i> Pattern recognition analytics</li>
+                        <li><i class="fas fa-check"></i> Automated data validation</li>
+                        <li><i class="fas fa-check"></i> Predictive staffing models</li>
                     </ul>
                     <button class="cta-button">
                         <i class="fas fa-eye"></i>
-                        View Details
+                        View AI Features
                     </button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="AI Logging System">
                 </div>
                 <div class="system-content">
-                    <h3>Logging System</h3>
-                    <p>Automated audit trails and records for transparency, tracking administrative actions, player interactions, and financial transactions.</p>
+                    <h3>AI Logging System</h3>
+                    <p>Intelligent audit trails with anomaly detection, automated reporting, and predictive issue identification.</p>
                     <ul class="system-features">
-                        <li><i class="fas fa-check"></i> Comprehensive action logging</li>
-                        <li><i class="fas fa-check"></i> Financial transaction records</li>
-                        <li><i class="fas fa-check"></i> Administrative action tracking</li>
-                        <li><i class="fas fa-check"></i> Customizable log categories</li>
+                        <li><i class="fas fa-check"></i> AI anomaly detection</li>
+                        <li><i class="fas fa-check"></i> Automated report generation</li>
+                        <li><i class="fas fa-check"></i> Predictive issue alerts</li>
+                        <li><i class="fas fa-check"></i> Smart categorization</li>
                     </ul>
                     <button class="cta-button">
                         <i class="fas fa-eye"></i>
-                        View Details
+                        View AI Features
                     </button>
                 </div>
             </div>
@@ -1254,11 +1400,11 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready to Transform Your Community?</h2>
-            <p>Join hundreds of satisfied communities who have enhanced their experience with our custom systems. Get started today with our revolutionary $4 pricing.</p>
+            <h2>Experience AI-Powered Development</h2>
+            <p>Join the future of web development with our advanced AI systems. Get started today with our revolutionary $4 AI pricing.</p>
             <button class="cta-button">
                 <i class="fas fa-paper-plane"></i>
-                Start Your Project
+                Start AI Project
             </button>
             
             <div class="social-links">
@@ -1282,45 +1428,45 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Star Development</h3>
-                <p>Premium web systems at unprecedented prices. Specializing in custom applications for niche communities and small businesses since 2023.</p>
+                <h3>Star Development AI</h3>
+                <p>Advanced AI-powered web systems at unprecedented prices. Specializing in intelligent applications for niche communities since 2023.</p>
             </div>
             <div class="footer-column">
-                <h3>Services</h3>
+                <h3>AI Services</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Simple Websites</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Custom Systems</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> CAD/MDT Systems</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Database Solutions</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Logging Systems</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI-Powered Websites</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Intelligent Systems</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI CAD/MDT Systems</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Smart Databases</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Logging Systems</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Support</h3>
+                <h3>AI Support</h3>
                 <ul>
-                    <li><a href="mailto:hello.company.helpdesk@gmail.com"><i class="fas fa-envelope"></i> General Support</a></li>
-                    <li><a href="mailto:help.pro.tech.assist@gmail.com"><i class="fas fa-life-ring"></i> Technical Support</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Documentation</a></li>
-                    <li><a href="https://discord.gg/UWeT2bnHrN"><i class="fab fa-discord"></i> Community Discord</a></li>
+                    <li><a href="mailto:hello.company.helpdesk@gmail.com"><i class="fas fa-envelope"></i> General AI Support</a></li>
+                    <li><a href="mailto:help.pro.tech.assist@gmail.com"><i class="fas fa-life-ring"></i> Technical AI Support</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> AI Documentation</a></li>
+                    <li><a href="https://discord.gg/UWeT2bnHrN"><i class="fab fa-discord"></i> AI Community</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Company</h3>
+                <h3>AI Company</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Our Process</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Our AI</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Development Process</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Pricing</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Careers</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Star Development. All rights reserved.
+            &copy; 2025 Star Development AI. All rights reserved.
         </div>
     </footer>
 
-    <!-- Stary AI Assistant -->
+    <!-- Advanced Stary AI Assistant -->
     <div class="stary-assistant">
         <button class="stary-toggle pulsing">
             <i class="fas fa-robot"></i>
@@ -1330,18 +1476,47 @@
                 <div class="stary-title">
                     <i class="fas fa-robot"></i>
                     Stary AI Assistant
+                    <span class="stary-status">• Online</span>
                 </div>
                 <button class="stary-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="stary-messages">
+                <div class="message system">
+                    Stary AI is now connected to Gemini API
+                </div>
                 <div class="message ai">
-                    Hello! I'm Stary, your AI assistant for Star Development. I can answer questions about our services, systems, pricing, and help you get started. How can I assist you today?
+                    Hello! I'm Stary, your advanced AI assistant for Star Development. I'm powered by Google Gemini and can help you with everything from system information to AI capabilities and pricing. How can I assist you today?
                 </div>
             </div>
+            
+            <div class="quick-replies">
+                <div class="quick-reply" data-message="Tell me about your AI features">AI Features</div>
+                <div class="quick-reply" data-message="How does the $4 pricing work?">$4 Pricing</div>
+                <div class="quick-reply" data-message="What AI systems do you offer?">AI Systems</div>
+                <div class="quick-reply" data-message="How do I get started?">Get Started</div>
+            </div>
+            
+            <div class="ai-suggestions">
+                <h4>AI-Powered Suggestions</h4>
+                <div class="suggestion-cards">
+                    <div class="suggestion-card" data-message="Explain your predictive analytics features">Predictive Analytics</div>
+                    <div class="suggestion-card" data-message="How does AI enhance your CAD/MDT system?">AI CAD System</div>
+                    <div class="suggestion-card" data-message="What makes your AI different from others?">AI Differentiation</div>
+                </div>
+            </div>
+            
             <div class="stary-input-container">
-                <input type="text" class="stary-input" placeholder="Ask me anything about Star Development...">
+                <input type="text" class="stary-input" placeholder="Ask me anything about AI systems...">
+                <div class="stary-actions">
+                    <button class="stary-action-btn" title="Voice Input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="stary-action-btn" title="Attach File">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                </div>
                 <button class="stary-send">
                     <i class="fas fa-paper-plane"></i>
                 </button>
@@ -1350,7 +1525,7 @@
     </div>
 
     <script>
-        // Stary AI Assistant with Google Gemini API Integration
+        // Advanced Stary AI Assistant with Enhanced Features
         document.addEventListener('DOMContentLoaded', function() {
             const staryToggle = document.querySelector('.stary-toggle');
             const staryChat = document.querySelector('.stary-chat');
@@ -1359,10 +1534,25 @@
             const starySend = document.querySelector('.stary-send');
             const staryMessages = document.querySelector('.stary-messages');
             const sectionAiButtons = document.querySelectorAll('.section-ai-button');
+            const quickReplies = document.querySelectorAll('.quick-reply');
+            const suggestionCards = document.querySelectorAll('.suggestion-card');
+            const actionButtons = document.querySelectorAll('.stary-action-btn');
 
             // API Configuration
             const GEMINI_API_KEY = 'AIzaSyDi97UlGzM2eaUR0hmXdY606mqFoybkyrU';
             const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+
+            // Conversation memory
+            let conversationHistory = [
+                {
+                    role: "user",
+                    parts: [{text: "You are Stary, an advanced AI assistant for Star Development. Key information: Premium web systems starting at $4, specialized in AI-powered applications for niche communities, offers CAD/MDT systems, department databases, logging systems with AI features like predictive analytics, NLP, and machine learning optimization. Support: hello.company.helpdesk@gmail.com (general), help.pro.tech.assist@gmail.com (technical). Always be helpful and redirect to email for specific technical queries."}]
+                },
+                {
+                    role: "model",
+                    parts: [{text: "Understood. I'm Stary, the AI assistant for Star Development. I'll provide information about our AI-powered web systems, $4 pricing, and specialized services while directing technical queries to appropriate email support."}]
+                }
+            ];
 
             // Toggle chat window
             staryToggle.addEventListener('click', function() {
@@ -1375,27 +1565,111 @@
                 staryChat.classList.remove('active');
             });
 
+            // Quick replies
+            quickReplies.forEach(reply => {
+                reply.addEventListener('click', function() {
+                    const message = this.getAttribute('data-message');
+                    staryInput.value = message;
+                    sendMessage();
+                });
+            });
+
+            // Suggestion cards
+            suggestionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const message = this.getAttribute('data-message');
+                    staryInput.value = message;
+                    sendMessage();
+                });
+            });
+
+            // Action buttons
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.querySelector('.fa-microphone')) {
+                        toggleVoiceInput();
+                    } else if (this.querySelector('.fa-paperclip')) {
+                        // File attachment functionality
+                        addMessage("File attachment feature is coming soon!", 'ai');
+                    }
+                });
+            });
+
+            // Voice input functionality
+            let recognition = null;
+            function toggleVoiceInput() {
+                if (!('webkitSpeechRecognition' in window)) {
+                    addMessage("Voice input is not supported in your browser.", 'ai');
+                    return;
+                }
+
+                if (!recognition) {
+                    recognition = new webkitSpeechRecognition();
+                    recognition.continuous = false;
+                    recognition.interimResults = false;
+                    
+                    recognition.onstart = function() {
+                        addMessage("Listening...", 'system');
+                    };
+                    
+                    recognition.onresult = function(event) {
+                        const transcript = event.results[0][0].transcript;
+                        staryInput.value = transcript;
+                    };
+                    
+                    recognition.onerror = function(event) {
+                        addMessage("Voice input error: " + event.error, 'system');
+                    };
+                    
+                    recognition.onend = function() {
+                        addMessage("Stopped listening", 'system');
+                    };
+                }
+
+                if (staryInput.value === "") {
+                    recognition.start();
+                } else {
+                    recognition.stop();
+                }
+            }
+
             // Send message function
             async function sendMessage() {
                 const message = staryInput.value.trim();
                 if (message === '') return;
 
-                // Add user message
+                // Add user message to chat and history
                 addMessage(message, 'user');
+                conversationHistory.push({
+                    role: "user",
+                    parts: [{text: message}]
+                });
+                
                 staryInput.value = '';
                 starySend.disabled = true;
 
-                // Show typing indicator
-                showTypingIndicator();
+                // Show thinking indicator
+                showThinkingIndicator();
 
                 try {
-                    // Generate AI response using Gemini API
-                    const response = await generateGeminiResponse(message);
-                    removeTypingIndicator();
+                    // Generate AI response using Gemini API with conversation history
+                    const response = await generateGeminiResponse(conversationHistory);
+                    removeThinkingIndicator();
+                    
+                    // Add AI response to chat and history
                     addMessage(response, 'ai');
+                    conversationHistory.push({
+                        role: "model",
+                        parts: [{text: response}]
+                    });
+                    
+                    // Keep conversation history manageable
+                    if (conversationHistory.length > 10) {
+                        conversationHistory = conversationHistory.slice(-10);
+                    }
                 } catch (error) {
                     console.error('Error calling Gemini API:', error);
-                    removeTypingIndicator();
+                    removeThinkingIndicator();
                     addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
                 } finally {
                     starySend.disabled = false;
@@ -1424,27 +1698,27 @@
                 staryMessages.scrollTop = staryMessages.scrollHeight;
             }
 
-            // Show typing indicator
-            function showTypingIndicator() {
-                const typingElement = document.createElement('div');
-                typingElement.classList.add('stary-typing');
-                typingElement.innerHTML = `
-                    Stary is typing
-                    <div class="typing-dots">
+            // Show thinking indicator
+            function showThinkingIndicator() {
+                const thinkingElement = document.createElement('div');
+                thinkingElement.classList.add('ai-thinking');
+                thinkingElement.innerHTML = `
+                    Stary is thinking
+                    <div class="thinking-dots">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 `;
-                staryMessages.appendChild(typingElement);
+                staryMessages.appendChild(thinkingElement);
                 staryMessages.scrollTop = staryMessages.scrollHeight;
             }
 
-            // Remove typing indicator
-            function removeTypingIndicator() {
-                const typingElement = document.querySelector('.stary-typing');
-                if (typingElement) {
-                    typingElement.remove();
+            // Remove thinking indicator
+            function removeThinkingIndicator() {
+                const thinkingElement = document.querySelector('.ai-thinking');
+                if (thinkingElement) {
+                    thinkingElement.remove();
                 }
             }
 
@@ -1457,71 +1731,66 @@
                     let sectionMessage = '';
                     switch(section) {
                         case 'hero':
-                            sectionMessage = "Tell me about Star Development's services and the $4 pricing model.";
+                            sectionMessage = "Tell me about Star Development's AI-powered services and the $4 pricing model.";
                             break;
                         case 'features':
-                            sectionMessage = "What makes Star Development different from other web development companies?";
+                            sectionMessage = "What advanced AI features does Star Development offer and how do they enhance your systems?";
                             break;
                         case 'systems':
-                            sectionMessage = "Can you explain the different systems Star Development offers, like CAD/MDT, Department Database, and Logging systems?";
+                            sectionMessage = "Can you explain the AI capabilities in your CAD/MDT, Department Database, and Logging systems?";
                             break;
                         default:
-                            sectionMessage = "Tell me about Star Development.";
+                            sectionMessage = "Tell me about Star Development's AI technology.";
                     }
                     
                     // Add the section-specific message and send it
                     addMessage(sectionMessage, 'user');
-                    showTypingIndicator();
+                    conversationHistory.push({
+                        role: "user",
+                        parts: [{text: sectionMessage}]
+                    });
+                    
+                    showThinkingIndicator();
                     
                     // Generate AI response
                     setTimeout(async () => {
                         try {
-                            const response = await generateGeminiResponse(sectionMessage);
-                            removeTypingIndicator();
+                            const response = await generateGeminiResponse(conversationHistory);
+                            removeThinkingIndicator();
                             addMessage(response, 'ai');
+                            conversationHistory.push({
+                                role: "model",
+                                parts: [{text: response}]
+                            });
                         } catch (error) {
                             console.error('Error calling Gemini API:', error);
-                            removeTypingIndicator();
+                            removeThinkingIndicator();
                             addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
                         }
                     }, 500);
                 });
             });
 
-            // Generate response using Google Gemini API
-            async function generateGeminiResponse(userMessage) {
-                // Create the context for the AI
-                const context = `
-                    You are Stary, the AI assistant for Star Development. Star Development is a web development company that specializes in creating custom web systems for niche communities, particularly online roleplaying communities like FiveM. 
-
-                    Key Company Information:
-                    - Pricing: Starts at $4 for any site or system
-                    - Specialization: Complex, database-driven web applications ("Systems")
-                    - Target Audience: Online roleplaying communities and small businesses
-                    - Core Services: 
-                      * Simple Websites (standard sites, portfolios, small business pages)
-                      * Systems (custom web applications like CAD/MDT, Department Databases, Logging Systems)
-                    - Unique Selling Points: Hyper-specialization in niche markets, fixed-cost pricing, community focus
-                    - Support: General support (hello.company.helpdesk@gmail.com), Technical support (help.pro.tech.assist@gmail.com)
-                    - Social Media: @1StarDEV on Twitter, 1stardev on Instagram, Discord community
-
-                    Important: Always be helpful, professional, and redirect users to email support if they need specific technical help or custom quotes. Never offer human handoffs - only email redirects.
-
-                    User's question: ${userMessage}
-                `;
-
+            // Generate response using Google Gemini API with conversation history
+            async function generateGeminiResponse(history) {
                 const requestBody = {
-                    contents: [{
-                        parts: [{
-                            text: context
-                        }]
-                    }],
+                    contents: history,
                     generationConfig: {
                         temperature: 0.7,
                         topK: 40,
                         topP: 0.95,
                         maxOutputTokens: 1024,
-                    }
+                    },
+                    safetySettings: [
+                        {
+                            category: "HARM_CATEGORY_HARASSMENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_HATE_SPEECH",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        }
+                    ]
                 };
 
                 const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
