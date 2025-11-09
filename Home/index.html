@@ -363,13 +363,13 @@
             font-weight: 500;
         }
 
-        /* Systems */
-        .systems {
+        /* Services */
+        .services {
             padding: 6rem 2rem;
             background: white;
         }
 
-        .systems-grid {
+        .services-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -377,7 +377,7 @@
             gap: 2rem;
         }
 
-        .system-card {
+        .service-card {
             background: white;
             border-radius: 8px;
             overflow: hidden;
@@ -386,39 +386,39 @@
             position: relative;
         }
 
-        .system-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
-        .system-visual {
+        .service-visual {
             height: 200px;
             overflow: hidden;
             position: relative;
         }
 
-        .system-visual img {
+        .service-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
 
-        .system-card:hover .system-visual img {
+        .service-card:hover .service-visual img {
             transform: scale(1.05);
         }
 
-        .system-content {
+        .service-content {
             padding: 2rem;
         }
 
-        .system-content h3 {
+        .service-content h3 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .system-content p {
+        .service-content p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
@@ -628,13 +628,13 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <a href="Home" class="logo">
+            <a href="index.html" class="logo">
                 <img src="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503" alt="Star Development">
                 <div class="logo-text">Star Development</div>
             </a>
             <nav>
                 <ul>
-                    <li><a href="Home">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="SimpleWebsites">Simple Websites</a></li>
                     <li><a href="CustomSystems">Custom Systems</a></li>
                     <li><a href="#support">Support</a></li>
@@ -663,27 +663,27 @@
                 <div class="floating-elements">
                     <div class="floating-card">
                         <div class="card-icon">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-globe"></i>
                         </div>
-                        <div class="card-title">E-Commerce</div>
+                        <div class="card-title">Simple Websites</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="card-title">Custom Systems</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="card-title">CAD/MDT Systems</div>
                     </div>
                     <div class="floating-card">
                         <div class="card-icon">
                             <i class="fas fa-database"></i>
                         </div>
-                        <div class="card-title">Database Systems</div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="card-title">Analytics</div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="card-title">Community Platforms</div>
+                        <div class="card-title">Database Solutions</div>
                     </div>
                 </div>
             </div>
@@ -764,41 +764,51 @@
         </div>
     </section>
 
-    <!-- Systems -->
-    <section class="systems" id="systems">
+    <!-- Services -->
+    <section class="services" id="services">
         <div class="section-header">
-            <h2>Our Specialized Systems</h2>
-            <p>Custom-built applications designed to automate and streamline complex processes</p>
+            <h2>Our Services</h2>
+            <p>Comprehensive web development solutions for every need</p>
         </div>
-        <div class="systems-grid">
-            <div class="system-card">
-                <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="CAD/MDT System">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-visual">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Simple Websites">
                 </div>
-                <div class="system-content">
-                    <h3>911 CAD/MDT System</h3>
-                    <p>Comprehensive dispatch and records management for roleplay communities with live maps and unit tracking.</p>
-                    <button class="cta-button" onclick="window.location.href='CustomSystems'">View Details</button>
-                </div>
-            </div>
-            <div class="system-card">
-                <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
-                </div>
-                <div class="system-content">
-                    <h3>Department Database</h3>
-                    <p>Centralized records management for government factions with employee rosters and legal statutes.</p>
-                    <button class="cta-button" onclick="window.location.href='CustomSystems'">View Details</button>
+                <div class="service-content">
+                    <h3>Simple Websites</h3>
+                    <p>Professional websites for businesses, portfolios, and personal brands with responsive design and SEO optimization.</p>
+                    <button class="cta-button" onclick="window.location.href='SimpleWebsites'">Learn More</button>
                 </div>
             </div>
-            <div class="system-card">
-                <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
+            <div class="service-card">
+                <div class="service-visual">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Custom Systems">
                 </div>
-                <div class="system-content">
-                    <h3>Logging System</h3>
-                    <p>Automated audit trails and records for transparency, tracking administrative actions and transactions.</p>
-                    <button class="cta-button" onclick="window.location.href='CustomSystems'">View Details</button>
+                <div class="service-content">
+                    <h3>Custom Systems</h3>
+                    <p>Tailored web applications and software solutions designed to automate and streamline your business processes.</p>
+                    <button class="cta-button" onclick="window.location.href='CustomSystems'">Learn More</button>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-visual">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="CAD/MDT Systems">
+                </div>
+                <div class="service-content">
+                    <h3>CAD/MDT Systems</h3>
+                    <p>Specialized dispatch and records management systems for roleplay communities and emergency services.</p>
+                    <button class="cta-button" onclick="window.location.href='CADMDTSystems'">Learn More</button>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-visual">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Database Solutions">
+                </div>
+                <div class="service-content">
+                    <h3>Database Solutions</h3>
+                    <p>Custom database systems for managing complex data relationships with intuitive interfaces and robust security.</p>
+                    <button class="cta-button" onclick="window.location.href='DatabaseSolutions'">Learn More</button>
                 </div>
             </div>
         </div>
@@ -855,8 +865,8 @@
                 <ul>
                     <li><a href="SimpleWebsites">Simple Websites</a></li>
                     <li><a href="CustomSystems">Custom Systems</a></li>
-                    <li><a href="CustomSystems">CAD/MDT Systems</a></li>
-                    <li><a href="CustomSystems">Database Solutions</a></li>
+                    <li><a href="CADMDTSystems">CAD/MDT Systems</a></li>
+                    <li><a href="DatabaseSolutions">Database Solutions</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -886,7 +896,7 @@
         // Add scroll animations
         document.addEventListener('DOMContentLoaded', function() {
             // Add scroll animation to elements
-            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-item, .step');
+            const animatedElements = document.querySelectorAll('.feature-card, .service-card, .stat-item, .step');
             
             function checkScroll() {
                 animatedElements.forEach(element => {
