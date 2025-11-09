@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Development | AI-Powered Web Systems</title>
+    <title>Star Development | Premium Web Systems</title>
     <link rel="icon" type="image/x-icon" href="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,46 +16,38 @@
             --darker-silver: #6c757d;
             --text-dark: #212529;
             --text-light: #6c757d;
-            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
             background-color: var(--primary-silver);
             color: var(--text-dark);
-            overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            z-index: 1000;
             background: rgba(248, 249, 250, 0.95);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-silver);
-            transition: var(--transition);
+            z-index: 1000;
         }
 
         .header-container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -69,87 +61,47 @@
         }
 
         .logo img {
-            height: 42px;
+            height: 40px;
             filter: brightness(0) saturate(100%) invert(14%) sepia(8%) saturate(866%) hue-rotate(169deg) brightness(95%) contrast(89%);
-            transition: var(--transition);
-        }
-
-        .logo:hover img {
-            transform: rotate(15deg);
         }
 
         .logo-text {
-            font-size: 1.6rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--text-dark);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
-            font-size: 1.05rem;
             transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--text-dark);
-            transition: var(--transition);
-            border-radius: 3px;
         }
 
         nav a:hover {
             color: var(--darker-silver);
         }
 
-        nav a:hover:after {
-            width: 100%;
-        }
-
         .cta-button {
             background: var(--text-dark);
             color: white;
             border: none;
-            padding: 0.9rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.05rem;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            background: #000;
-        }
-
-        .cta-button.secondary {
-            background: white;
-            color: var(--text-dark);
-            border: 1px solid var(--accent-silver);
-        }
-
-        .cta-button.secondary:hover {
-            background: var(--primary-silver);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
         /* Hero Section */
@@ -157,48 +109,29 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 100px;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-silver) 0%, var(--secondary-silver) 100%);
-            z-index: -2;
+            padding: 100px 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero-content {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .hero-text {
-            animation: fadeInUp 1s ease-out;
-        }
-
         .hero-text h1 {
-            font-size: 3.8rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: var(--text-dark);
         }
 
         .hero-text p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 2.5rem;
-            max-width: 90%;
+            margin-bottom: 2rem;
         }
 
         .price-tag {
@@ -206,269 +139,114 @@
             align-items: center;
             background: white;
             color: var(--text-dark);
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
             box-shadow: var(--shadow);
-            animation: pulse 2.5s infinite;
-            gap: 0.5rem;
             border: 1px solid var(--accent-silver);
         }
 
-        .price-tag i {
-            font-size: 1.5rem;
-            color: var(--darker-silver);
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
         .hero-visual {
-            position: relative;
-            height: 550px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .floating-card {
-            position: absolute;
-            background: white;
-            border-radius: 20px;
+        .system-preview {
+            width: 100%;
+            border-radius: 12px;
             box-shadow: var(--shadow);
-            padding: 2rem;
-            width: 300px;
-            transition: var(--transition);
-            border: 1px solid var(--accent-silver);
-            z-index: 2;
-        }
-
-        .card-1 {
-            top: 5%;
-            left: 5%;
-            transform: rotate(-5deg);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .card-2 {
-            top: 25%;
-            right: 5%;
-            transform: rotate(3deg);
-            animation: float 8s ease-in-out infinite 1.5s;
-        }
-
-        .card-3 {
-            bottom: 15%;
-            left: 15%;
-            transform: rotate(-2deg);
-            animation: float 8s ease-in-out infinite 3s;
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--darker-silver);
-        }
-
-        .floating-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-dark);
-        }
-
-        .floating-card p {
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        .floating-card:hover {
-            transform: translateY(-15px) rotate(0deg) scale(1.05);
-            box-shadow: var(--shadow-hover);
-            z-index: 3;
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .stats-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            border-radius: 16px;
-            background: var(--primary-silver);
-            transition: var(--transition);
             border: 1px solid var(--accent-silver);
         }
 
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--darker-silver);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .stat-text {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Features Section */
+        /* Features */
         .features {
-            padding: 8rem 2rem;
-            background: var(--secondary-silver);
+            padding: 6rem 2rem;
+            background: white;
         }
 
         .section-header {
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto 6rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
         .section-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-header p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
         }
 
         .features-grid {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
+            background: var(--primary-silver);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
             transition: var(--transition);
             border: 1px solid var(--accent-silver);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: var(--text-dark);
-            transition: var(--transition);
         }
 
         .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .feature-card:hover:before {
-            width: 100%;
-            opacity: 0.03;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             color: var(--darker-silver);
         }
 
         .feature-card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .feature-card p {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
         }
 
-        .feature-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .feature-link:hover {
-            gap: 1rem;
-            color: var(--darker-silver);
-        }
-
-        /* Systems Showcase */
+        /* Systems */
         .systems {
-            padding: 8rem 2rem;
-            background: white;
+            padding: 6rem 2rem;
+            background: var(--secondary-silver);
         }
 
         .systems-grid {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .system-card {
-            background: var(--primary-silver);
-            border-radius: 20px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--accent-silver);
         }
 
         .system-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
         }
 
         .system-visual {
-            height: 220px;
-            background: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            position: relative;
+            height: 200px;
             overflow: hidden;
         }
 
@@ -476,147 +254,64 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .system-visual:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
         }
 
         .system-content {
-            padding: 2.5rem;
+            padding: 2rem;
         }
 
         .system-content h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .system-content p {
             color: var(--text-light);
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
-        .system-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .system-features li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-
-        .system-features i {
-            color: var(--darker-silver);
-        }
-
-        /* CTA Section */
+        /* CTA */
         .cta-section {
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             background: var(--text-dark);
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
         }
 
         .cta-content {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
 
         .cta-section h2 {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
 
         .cta-section p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.3rem;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px) scale(1.1);
         }
 
         /* Footer */
         footer {
             background: var(--text-dark);
             color: white;
-            padding: 5rem 2rem 2rem;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-content {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.8rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-column ul {
@@ -624,145 +319,103 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-column a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-
-        .footer-column a i {
-            width: 20px;
-            text-align: center;
         }
 
         .footer-column a:hover {
             color: white;
-            transform: translateX(5px);
         }
 
         .copyright {
-            max-width: 1300px;
-            margin: 4rem auto 0;
-            padding-top: 2.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
         }
 
-        /* Advanced Stary AI Assistant */
-        .stary-assistant {
+        /* Simple AI Assistant */
+        .ai-assistant {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 9999;
-            font-family: 'Inter', sans-serif;
+            z-index: 1000;
         }
 
-        .stary-toggle {
-            width: 70px;
-            height: 70px;
+        .ai-toggle {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: var(--text-dark);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             transition: var(--transition);
             border: none;
-            position: relative;
-            overflow: hidden;
         }
 
-        .stary-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        .ai-toggle:hover {
+            transform: scale(1.05);
         }
 
-        .stary-toggle.pulsing::before {
-            content: '';
+        .ai-chat {
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.2);
-            animation: pulse-ring 2s infinite;
-        }
-
-        .stary-chat {
-            position: absolute;
-            bottom: 90px;
+            bottom: 80px;
             right: 0;
-            width: 420px;
-            height: 580px;
+            width: 350px;
+            height: 450px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(20px) scale(0.9);
+            transform: translateY(10px);
             transition: var(--transition);
             border: 1px solid var(--accent-silver);
         }
 
-        .stary-chat.active {
+        .ai-chat.active {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
-        .stary-header {
+        .ai-header {
             background: var(--text-dark);
             color: white;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .stary-title {
+        .ai-title {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
             font-weight: 600;
         }
 
-        .stary-title i {
-            font-size: 1.3rem;
-        }
-
-        .stary-status {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            margin-left: 1rem;
-        }
-
-        .stary-close {
+        .ai-close {
             background: none;
             border: none;
             color: white;
-            font-size: 1.2rem;
             cursor: pointer;
-            transition: var(--transition);
         }
 
-        .stary-close:hover {
-            transform: scale(1.1);
-        }
-
-        .stary-messages {
+        .ai-messages {
             flex: 1;
             padding: 1.5rem;
             overflow-y: auto;
@@ -772,92 +425,47 @@
         }
 
         .message {
-            max-width: 85%;
-            padding: 0.9rem 1.2rem;
-            border-radius: 18px;
+            max-width: 80%;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
             line-height: 1.5;
-            font-size: 0.95rem;
-            animation: messageAppear 0.3s ease-out;
+            font-size: 0.9rem;
         }
 
         .message.ai {
             background: var(--primary-silver);
-            color: var(--text-dark);
-            border-bottom-left-radius: 5px;
             align-self: flex-start;
         }
 
         .message.user {
             background: var(--text-dark);
             color: white;
-            border-bottom-right-radius: 5px;
             align-self: flex-end;
         }
 
-        .message.system {
-            background: transparent;
-            color: var(--text-light);
-            font-style: italic;
-            align-self: center;
-            max-width: 100%;
-            text-align: center;
-            font-size: 0.85rem;
-            padding: 0.5rem 1rem;
-        }
-
-        .stary-input-container {
-            padding: 1.2rem;
+        .ai-input-container {
+            padding: 1rem;
             border-top: 1px solid var(--accent-silver);
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
 
-        .stary-input {
+        .ai-input {
             flex: 1;
-            padding: 0.9rem 1.2rem;
+            padding: 0.8rem 1rem;
             border: 1px solid var(--accent-silver);
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             outline: none;
-            transition: var(--transition);
         }
 
-        .stary-input:focus {
+        .ai-input:focus {
             border-color: var(--darker-silver);
         }
 
-        .stary-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .stary-action-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--primary-silver);
-            color: var(--text-dark);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .stary-action-btn:hover {
-            background: var(--accent-silver);
-            transform: scale(1.05);
-        }
-
-        .stary-action-btn.active {
-            background: var(--text-dark);
-            color: white;
-        }
-
-        .stary-send {
-            width: 45px;
-            height: 45px;
+        .ai-send {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--text-dark);
             color: white;
@@ -869,27 +477,19 @@
             transition: var(--transition);
         }
 
-        .stary-send:hover {
+        .ai-send:hover {
             background: #000;
-            transform: scale(1.05);
         }
 
-        .stary-send:disabled {
-            background: var(--accent-silver);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .stary-typing {
+        .typing {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.2rem;
+            padding: 0.8rem 1rem;
             background: var(--primary-silver);
-            border-radius: 18px;
-            border-bottom-left-radius: 5px;
+            border-radius: 12px;
             align-self: flex-start;
-            max-width: 85%;
+            max-width: 80%;
             font-size: 0.9rem;
             color: var(--text-light);
         }
@@ -911,264 +511,38 @@
         .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
         .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 
-        .quick-replies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding: 0 1.5rem 1rem;
-        }
-
-        .quick-reply {
-            background: var(--primary-silver);
-            border: 1px solid var(--accent-silver);
-            color: var(--text-dark);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .quick-reply:hover {
-            background: var(--text-dark);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .ai-suggestions {
-            background: var(--primary-silver);
-            border-top: 1px solid var(--accent-silver);
-            padding: 1rem 1.5rem;
-        }
-
-        .ai-suggestions h4 {
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-dark);
-        }
-
-        .suggestion-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-        }
-
-        .suggestion-card {
-            background: white;
-            border: 1px solid var(--accent-silver);
-            border-radius: 12px;
-            padding: 0.8rem 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .suggestion-card:hover {
-            background: var(--text-dark);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .section-ai-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--text-dark);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1rem;
-        }
-
-        .section-ai-button:hover {
-            background: #000;
-            transform: translateY(-3px);
-        }
-
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            border: 1px solid #ffcdd2;
-        }
-
-        .ai-thinking {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.2rem;
-            background: var(--primary-silver);
-            border-radius: 18px;
-            border-bottom-left-radius: 5px;
-            align-self: flex-start;
-            max-width: 85%;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .thinking-dots {
-            display: flex;
-            gap: 0.3rem;
-        }
-
-        .thinking-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--text-dark);
-            animation: thinking 1.5s infinite ease-in-out;
-        }
-
-        .thinking-dots span:nth-child(1) { animation-delay: 0s; }
-        .thinking-dots span:nth-child(2) { animation-delay: 0.3s; }
-        .thinking-dots span:nth-child(3) { animation-delay: 0.6s; }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(-5deg);
-            }
-            50% {
-                transform: translateY(-25px) rotate(-5deg);
-            }
-            100% {
-                transform: translateY(0) rotate(-5deg);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: var(--shadow);
-            }
-            50% {
-                box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
-            }
-            100% {
-                box-shadow: var(--shadow);
-            }
-        }
-
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        @keyframes messageAppear {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes typing {
             0%, 60%, 100% {
                 transform: translateY(0);
             }
             30% {
-                transform: translateY(-5px);
+                transform: translateY(-3px);
             }
         }
 
-        @keyframes thinking {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.7;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1100px) {
+        /* Responsive */
+        @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 3rem;
+                gap: 2rem;
             }
 
-            .hero-text p {
-                max-width: 100%;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
-            .floating-card {
-                position: relative;
-                margin: 1rem;
+            .section-header h2 {
+                font-size: 2rem;
             }
 
-            .card-1, .card-2, .card-3 {
-                position: static;
-                transform: none;
-                margin-bottom: 2rem;
-            }
-
-            .hero-visual {
-                height: auto;
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 768px) {
             nav ul {
                 display: none;
             }
 
-            .header-container {
-                padding: 1rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-
-            .section-header h2 {
-                font-size: 2.3rem;
-            }
-
-            .button-group {
-                justify-content: center;
-            }
-
-            .features-grid, .systems-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stary-chat {
-                width: 350px;
-                height: 500px;
+            .ai-chat {
+                width: 300px;
                 right: -10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stary-chat {
-                width: 320px;
-                right: -20px;
             }
         }
     </style>
@@ -1178,7 +552,7 @@
     <header>
         <div class="header-container">
             <a href="#" class="logo">
-                <img src="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503" alt="Star Development Logo">
+                <img src="https://ik.imagekit.io/tycncf0zq0/Star%20Devlopement%20Logo.png?updatedAt=1762635901503" alt="Star Development">
                 <div class="logo-text">Star Development</div>
             </a>
             <nav>
@@ -1186,241 +560,107 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#systems">Systems</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about">About</a></li>
                 </ul>
             </nav>
-            <button class="cta-button">
-                <i class="fas fa-rocket"></i>
-                Get Started
-            </button>
+            <button class="cta-button">Get Started</button>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>AI-Powered Web Systems at Unprecedented Prices</h1>
-                <p>Star Development combines advanced AI technology with premium web systems for niche communities. Experience the future of web development with our intelligent solutions.</p>
+                <h1>Premium Web Systems at Unprecedented Prices</h1>
+                <p>Star Development specializes in creating sophisticated, custom web applications for niche communities and small businesses.</p>
                 <div class="price-tag">
                     <i class="fas fa-tag"></i>
-                    <span>Starting at just $4</span>
+                    <span>Starting at $4</span>
                 </div>
-                <div class="button-group">
-                    <button class="cta-button">
-                        <i class="fas fa-laptop-code"></i>
-                        Explore AI Systems
-                    </button>
-                    <button class="cta-button secondary">
-                        <i class="fas fa-robot"></i>
-                        Meet Stary AI
-                    </button>
-                </div>
-                <button class="section-ai-button" data-section="hero">
-                    <i class="fas fa-robot"></i>
-                    Ask Stary about AI features
-                </button>
+                <button class="cta-button">Explore Systems</button>
             </div>
             <div class="hero-visual">
-                <div class="floating-card card-1">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>AI-Powered</h3>
-                    <p>Advanced machine learning algorithms enhance all our systems with predictive capabilities</p>
-                </div>
-                <div class="floating-card card-2">
-                    <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Lightning Fast</h3>
-                    <p>Optimized performance with AI-driven caching and resource management</p>
-                </div>
-                <div class="floating-card card-3">
-                    <div class="card-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>AI Security</h3>
-                    <p>Machine learning threat detection and automated security protocols</p>
-                </div>
+                <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="System Preview" class="system-preview">
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="stat-number">AI</div>
-                <div class="stat-text">Powered Systems</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <div class="stat-number">1200+</div>
-                <div class="stat-text">Systems Deployed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="stat-number">24/7</div>
-                <div class="stat-text">AI Support Available</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="stat-number">$4</div>
-                <div class="stat-text">AI Starting Price</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features" id="features">
         <div class="section-header">
-            <h2>Advanced AI Features</h2>
-            <p>Our systems integrate cutting-edge AI technology to deliver unprecedented value and performance</p>
-            <button class="section-ai-button" data-section="features">
-                <i class="fas fa-robot"></i>
-                Ask Stary about AI capabilities
-            </button>
+            <h2>What Makes Us Different</h2>
+            <p>Our unique approach combines specialized expertise with radical affordability</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-bullseye"></i>
                 </div>
-                <h3>Predictive Analytics</h3>
-                <p>Our AI systems analyze user behavior to predict needs and optimize performance automatically. Machine learning algorithms continuously improve system responsiveness.</p>
-                <a href="#" class="feature-link">
-                    Learn More <i class="fas fa-arrow-right"></i>
-                </a>
+                <h3>Hyper-Specialization</h3>
+                <p>We focus exclusively on building complex, database-driven web applications for specific communities.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-comments"></i>
+                    <i class="fas fa-tags"></i>
                 </div>
-                <h3>Natural Language Processing</h3>
-                <p>Advanced NLP allows our systems to understand and respond to complex queries in natural language, making interactions intuitive and efficient.</p>
-                <a href="#" class="feature-link">
-                    View Examples <i class="fas fa-arrow-right"></i>
-                </a>
+                <h3>Fixed-Cost Pricing</h3>
+                <p>Our revolutionary $4 pricing model makes custom software development accessible to all.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-users"></i>
                 </div>
-                <h3>AI-Optimized Performance</h3>
-                <p>Machine learning algorithms continuously monitor and optimize system performance, resource allocation, and response times for peak efficiency.</p>
-                <a href="#" class="feature-link">
-                    See Analytics <i class="fas fa-arrow-right"></i>
-                </a>
+                <h3>Community Focused</h3>
+                <p>Deep understanding of online roleplaying communities with specific needs and limited budgets.</p>
             </div>
         </div>
     </section>
 
-    <!-- Systems Showcase -->
+    <!-- Systems -->
     <section class="systems" id="systems">
         <div class="section-header">
-            <h2>AI-Enhanced Systems</h2>
-            <p>Our specialized systems now feature advanced AI capabilities for smarter, more efficient operations</p>
-            <button class="section-ai-button" data-section="systems">
-                <i class="fas fa-robot"></i>
-                Ask Stary about AI systems
-            </button>
+            <h2>Our Specialized Systems</h2>
+            <p>Custom-built applications designed to automate and streamline complex processes</p>
         </div>
         <div class="systems-grid">
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="AI CAD/MDT System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="CAD/MDT System">
                 </div>
                 <div class="system-content">
-                    <h3>AI CAD/MDT System</h3>
-                    <p>Intelligent dispatch system with predictive incident routing and automated resource allocation using machine learning algorithms.</p>
-                    <ul class="system-features">
-                        <li><i class="fas fa-check"></i> AI-powered incident prediction</li>
-                        <li><i class="fas fa-check"></i> Automated unit deployment</li>
-                        <li><i class="fas fa-check"></i> Natural language reporting</li>
-                        <li><i class="fas fa-check"></i> Predictive analytics</li>
-                    </ul>
-                    <button class="cta-button">
-                        <i class="fas fa-eye"></i>
-                        View AI Features
-                    </button>
+                    <h3>911 CAD/MDT System</h3>
+                    <p>Comprehensive dispatch and records management for roleplay communities.</p>
+                    <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="AI Department Database">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
                 </div>
                 <div class="system-content">
-                    <h3>AI Department Database</h3>
-                    <p>Smart records management with AI-powered search, pattern recognition, and automated data validation.</p>
-                    <ul class="system-features">
-                        <li><i class="fas fa-check"></i> AI-powered search and retrieval</li>
-                        <li><i class="fas fa-check"></i> Pattern recognition analytics</li>
-                        <li><i class="fas fa-check"></i> Automated data validation</li>
-                        <li><i class="fas fa-check"></i> Predictive staffing models</li>
-                    </ul>
-                    <button class="cta-button">
-                        <i class="fas fa-eye"></i>
-                        View AI Features
-                    </button>
+                    <h3>Department Database</h3>
+                    <p>Centralized records management for government factions.</p>
+                    <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="AI Logging System">
+                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
                 </div>
                 <div class="system-content">
-                    <h3>AI Logging System</h3>
-                    <p>Intelligent audit trails with anomaly detection, automated reporting, and predictive issue identification.</p>
-                    <ul class="system-features">
-                        <li><i class="fas fa-check"></i> AI anomaly detection</li>
-                        <li><i class="fas fa-check"></i> Automated report generation</li>
-                        <li><i class="fas fa-check"></i> Predictive issue alerts</li>
-                        <li><i class="fas fa-check"></i> Smart categorization</li>
-                    </ul>
-                    <button class="cta-button">
-                        <i class="fas fa-eye"></i>
-                        View AI Features
-                    </button>
+                    <h3>Logging System</h3>
+                    <p>Automated audit trails and records for transparency.</p>
+                    <button class="cta-button">View Details</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Experience AI-Powered Development</h2>
-            <p>Join the future of web development with our advanced AI systems. Get started today with our revolutionary $4 AI pricing.</p>
-            <button class="cta-button">
-                <i class="fas fa-paper-plane"></i>
-                Start AI Project
-            </button>
-            
-            <div class="social-links">
-                <a href="https://twitter.com/1StarDEV" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/1stardev/" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://discord.gg/UWeT2bnHrN" class="social-link">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="https://www.tiktok.com/@1star.dev" class="social-link">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
+            <h2>Ready to Transform Your Community?</h2>
+            <p>Join hundreds of satisfied communities with our custom systems.</p>
+            <button class="cta-button">Start Your Project</button>
         </div>
     </section>
 
@@ -1428,96 +668,62 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>Star Development AI</h3>
-                <p>Advanced AI-powered web systems at unprecedented prices. Specializing in intelligent applications for niche communities since 2023.</p>
+                <h3>Star Development</h3>
+                <p>Premium web systems at unprecedented prices.</p>
             </div>
             <div class="footer-column">
-                <h3>AI Services</h3>
+                <h3>Services</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI-Powered Websites</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Intelligent Systems</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI CAD/MDT Systems</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Smart Databases</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Logging Systems</a></li>
+                    <li><a href="#">Simple Websites</a></li>
+                    <li><a href="#">Custom Systems</a></li>
+                    <li><a href="#">CAD/MDT Systems</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>AI Support</h3>
+                <h3>Support</h3>
                 <ul>
-                    <li><a href="mailto:hello.company.helpdesk@gmail.com"><i class="fas fa-envelope"></i> General AI Support</a></li>
-                    <li><a href="mailto:help.pro.tech.assist@gmail.com"><i class="fas fa-life-ring"></i> Technical AI Support</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> AI Documentation</a></li>
-                    <li><a href="https://discord.gg/UWeT2bnHrN"><i class="fab fa-discord"></i> AI Community</a></li>
+                    <li><a href="mailto:hello.company.helpdesk@gmail.com">General Support</a></li>
+                    <li><a href="mailto:help.pro.tech.assist@gmail.com">Technical Support</a></li>
+                    <li><a href="#">Documentation</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>AI Company</h3>
+                <h3>Connect</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Our AI</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Development Process</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Pricing</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Contact</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Careers</a></li>
+                    <li><a href="https://twitter.com/1StarDEV">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/1stardev/">Instagram</a></li>
+                    <li><a href="https://discord.gg/UWeT2bnHrN">Discord</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Star Development AI. All rights reserved.
+            &copy; 2025 Star Development. All rights reserved.
         </div>
     </footer>
 
-    <!-- Advanced Stary AI Assistant -->
-    <div class="stary-assistant">
-        <button class="stary-toggle pulsing">
+    <!-- Simple AI Assistant -->
+    <div class="ai-assistant">
+        <button class="ai-toggle">
             <i class="fas fa-robot"></i>
         </button>
-        <div class="stary-chat">
-            <div class="stary-header">
-                <div class="stary-title">
+        <div class="ai-chat">
+            <div class="ai-header">
+                <div class="ai-title">
                     <i class="fas fa-robot"></i>
-                    Stary AI Assistant
-                    <span class="stary-status">• Online</span>
+                    AI Assistant
                 </div>
-                <button class="stary-close">
+                <button class="ai-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="stary-messages">
-                <div class="message system">
-                    Stary AI is now connected to Gemini API
-                </div>
+            <div class="ai-messages">
                 <div class="message ai">
-                    Hello! I'm Stary, your advanced AI assistant for Star Development. I'm powered by Google Gemini and can help you with everything from system information to AI capabilities and pricing. How can I assist you today?
+                    Hello! I can answer questions about our services, systems, and pricing. How can I help?
                 </div>
             </div>
-            
-            <div class="quick-replies">
-                <div class="quick-reply" data-message="Tell me about your AI features">AI Features</div>
-                <div class="quick-reply" data-message="How does the $4 pricing work?">$4 Pricing</div>
-                <div class="quick-reply" data-message="What AI systems do you offer?">AI Systems</div>
-                <div class="quick-reply" data-message="How do I get started?">Get Started</div>
-            </div>
-            
-            <div class="ai-suggestions">
-                <h4>AI-Powered Suggestions</h4>
-                <div class="suggestion-cards">
-                    <div class="suggestion-card" data-message="Explain your predictive analytics features">Predictive Analytics</div>
-                    <div class="suggestion-card" data-message="How does AI enhance your CAD/MDT system?">AI CAD System</div>
-                    <div class="suggestion-card" data-message="What makes your AI different from others?">AI Differentiation</div>
-                </div>
-            </div>
-            
-            <div class="stary-input-container">
-                <input type="text" class="stary-input" placeholder="Ask me anything about AI systems...">
-                <div class="stary-actions">
-                    <button class="stary-action-btn" title="Voice Input">
-                        <i class="fas fa-microphone"></i>
-                    </button>
-                    <button class="stary-action-btn" title="Attach File">
-                        <i class="fas fa-paperclip"></i>
-                    </button>
-                </div>
-                <button class="stary-send">
+            <div class="ai-input-container">
+                <input type="text" class="ai-input" placeholder="Ask me anything...">
+                <button class="ai-send">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
@@ -1525,162 +731,49 @@
     </div>
 
     <script>
-        // Advanced Stary AI Assistant with Enhanced Features
+        // Simple AI Assistant
         document.addEventListener('DOMContentLoaded', function() {
-            const staryToggle = document.querySelector('.stary-toggle');
-            const staryChat = document.querySelector('.stary-chat');
-            const staryClose = document.querySelector('.stary-close');
-            const staryInput = document.querySelector('.stary-input');
-            const starySend = document.querySelector('.stary-send');
-            const staryMessages = document.querySelector('.stary-messages');
-            const sectionAiButtons = document.querySelectorAll('.section-ai-button');
-            const quickReplies = document.querySelectorAll('.quick-reply');
-            const suggestionCards = document.querySelectorAll('.suggestion-card');
-            const actionButtons = document.querySelectorAll('.stary-action-btn');
+            const aiToggle = document.querySelector('.ai-toggle');
+            const aiChat = document.querySelector('.ai-chat');
+            const aiClose = document.querySelector('.ai-close');
+            const aiInput = document.querySelector('.ai-input');
+            const aiSend = document.querySelector('.ai-send');
+            const aiMessages = document.querySelector('.ai-messages');
 
-            // API Configuration
-            const GEMINI_API_KEY = 'AIzaSyDi97UlGzM2eaUR0hmXdY606mqFoybkyrU';
-            const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
-
-            // Conversation memory
-            let conversationHistory = [
-                {
-                    role: "user",
-                    parts: [{text: "You are Stary, an advanced AI assistant for Star Development. Key information: Premium web systems starting at $4, specialized in AI-powered applications for niche communities, offers CAD/MDT systems, department databases, logging systems with AI features like predictive analytics, NLP, and machine learning optimization. Support: hello.company.helpdesk@gmail.com (general), help.pro.tech.assist@gmail.com (technical). Always be helpful and redirect to email for specific technical queries."}]
-                },
-                {
-                    role: "model",
-                    parts: [{text: "Understood. I'm Stary, the AI assistant for Star Development. I'll provide information about our AI-powered web systems, $4 pricing, and specialized services while directing technical queries to appropriate email support."}]
-                }
-            ];
-
-            // Toggle chat window
-            staryToggle.addEventListener('click', function() {
-                staryChat.classList.toggle('active');
-                staryToggle.classList.remove('pulsing');
+            // Toggle chat
+            aiToggle.addEventListener('click', function() {
+                aiChat.classList.toggle('active');
             });
 
-            // Close chat window
-            staryClose.addEventListener('click', function() {
-                staryChat.classList.remove('active');
+            // Close chat
+            aiClose.addEventListener('click', function() {
+                aiChat.classList.remove('active');
             });
 
-            // Quick replies
-            quickReplies.forEach(reply => {
-                reply.addEventListener('click', function() {
-                    const message = this.getAttribute('data-message');
-                    staryInput.value = message;
-                    sendMessage();
-                });
-            });
-
-            // Suggestion cards
-            suggestionCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const message = this.getAttribute('data-message');
-                    staryInput.value = message;
-                    sendMessage();
-                });
-            });
-
-            // Action buttons
-            actionButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    if (this.querySelector('.fa-microphone')) {
-                        toggleVoiceInput();
-                    } else if (this.querySelector('.fa-paperclip')) {
-                        // File attachment functionality
-                        addMessage("File attachment feature is coming soon!", 'ai');
-                    }
-                });
-            });
-
-            // Voice input functionality
-            let recognition = null;
-            function toggleVoiceInput() {
-                if (!('webkitSpeechRecognition' in window)) {
-                    addMessage("Voice input is not supported in your browser.", 'ai');
-                    return;
-                }
-
-                if (!recognition) {
-                    recognition = new webkitSpeechRecognition();
-                    recognition.continuous = false;
-                    recognition.interimResults = false;
-                    
-                    recognition.onstart = function() {
-                        addMessage("Listening...", 'system');
-                    };
-                    
-                    recognition.onresult = function(event) {
-                        const transcript = event.results[0][0].transcript;
-                        staryInput.value = transcript;
-                    };
-                    
-                    recognition.onerror = function(event) {
-                        addMessage("Voice input error: " + event.error, 'system');
-                    };
-                    
-                    recognition.onend = function() {
-                        addMessage("Stopped listening", 'system');
-                    };
-                }
-
-                if (staryInput.value === "") {
-                    recognition.start();
-                } else {
-                    recognition.stop();
-                }
-            }
-
-            // Send message function
-            async function sendMessage() {
-                const message = staryInput.value.trim();
+            // Send message
+            function sendMessage() {
+                const message = aiInput.value.trim();
                 if (message === '') return;
 
-                // Add user message to chat and history
                 addMessage(message, 'user');
-                conversationHistory.push({
-                    role: "user",
-                    parts: [{text: message}]
-                });
-                
-                staryInput.value = '';
-                starySend.disabled = true;
+                aiInput.value = '';
 
-                // Show thinking indicator
-                showThinkingIndicator();
+                // Show typing
+                showTyping();
 
-                try {
-                    // Generate AI response using Gemini API with conversation history
-                    const response = await generateGeminiResponse(conversationHistory);
-                    removeThinkingIndicator();
-                    
-                    // Add AI response to chat and history
+                // Generate response after delay
+                setTimeout(() => {
+                    removeTyping();
+                    const response = generateResponse(message);
                     addMessage(response, 'ai');
-                    conversationHistory.push({
-                        role: "model",
-                        parts: [{text: response}]
-                    });
-                    
-                    // Keep conversation history manageable
-                    if (conversationHistory.length > 10) {
-                        conversationHistory = conversationHistory.slice(-10);
-                    }
-                } catch (error) {
-                    console.error('Error calling Gemini API:', error);
-                    removeThinkingIndicator();
-                    addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
-                } finally {
-                    starySend.disabled = false;
-                }
+                }, 1000);
             }
 
-            // Send message on button click
-            starySend.addEventListener('click', sendMessage);
+            // Send on button click
+            aiSend.addEventListener('click', sendMessage);
 
-            // Send message on Enter key
-            staryInput.addEventListener('keypress', function(e) {
+            // Send on Enter key
+            aiInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     sendMessage();
                 }
@@ -1689,203 +782,81 @@
             // Add message to chat
             function addMessage(text, sender) {
                 const messageElement = document.createElement('div');
-                messageElement.classList.add('message', sender.split(' ')[0]);
-                if (sender.includes('error')) {
-                    messageElement.classList.add('error-message');
-                }
+                messageElement.classList.add('message', sender);
                 messageElement.textContent = text;
-                staryMessages.appendChild(messageElement);
-                staryMessages.scrollTop = staryMessages.scrollHeight;
+                aiMessages.appendChild(messageElement);
+                aiMessages.scrollTop = aiMessages.scrollHeight;
             }
 
-            // Show thinking indicator
-            function showThinkingIndicator() {
-                const thinkingElement = document.createElement('div');
-                thinkingElement.classList.add('ai-thinking');
-                thinkingElement.innerHTML = `
-                    Stary is thinking
-                    <div class="thinking-dots">
+            // Show typing indicator
+            function showTyping() {
+                const typingElement = document.createElement('div');
+                typingElement.classList.add('typing');
+                typingElement.innerHTML = `
+                    AI is typing
+                    <div class="typing-dots">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 `;
-                staryMessages.appendChild(thinkingElement);
-                staryMessages.scrollTop = staryMessages.scrollHeight;
+                aiMessages.appendChild(typingElement);
+                aiMessages.scrollTop = aiMessages.scrollHeight;
             }
 
-            // Remove thinking indicator
-            function removeThinkingIndicator() {
-                const thinkingElement = document.querySelector('.ai-thinking');
-                if (thinkingElement) {
-                    thinkingElement.remove();
+            // Remove typing indicator
+            function removeTyping() {
+                const typingElement = document.querySelector('.typing');
+                if (typingElement) {
+                    typingElement.remove();
                 }
             }
 
-            // Section AI buttons
-            sectionAiButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const section = this.getAttribute('data-section');
-                    staryChat.classList.add('active');
-                    
-                    let sectionMessage = '';
-                    switch(section) {
-                        case 'hero':
-                            sectionMessage = "Tell me about Star Development's AI-powered services and the $4 pricing model.";
-                            break;
-                        case 'features':
-                            sectionMessage = "What advanced AI features does Star Development offer and how do they enhance your systems?";
-                            break;
-                        case 'systems':
-                            sectionMessage = "Can you explain the AI capabilities in your CAD/MDT, Department Database, and Logging systems?";
-                            break;
-                        default:
-                            sectionMessage = "Tell me about Star Development's AI technology.";
-                    }
-                    
-                    // Add the section-specific message and send it
-                    addMessage(sectionMessage, 'user');
-                    conversationHistory.push({
-                        role: "user",
-                        parts: [{text: sectionMessage}]
-                    });
-                    
-                    showThinkingIndicator();
-                    
-                    // Generate AI response
-                    setTimeout(async () => {
-                        try {
-                            const response = await generateGeminiResponse(conversationHistory);
-                            removeThinkingIndicator();
-                            addMessage(response, 'ai');
-                            conversationHistory.push({
-                                role: "model",
-                                parts: [{text: response}]
-                            });
-                        } catch (error) {
-                            console.error('Error calling Gemini API:', error);
-                            removeThinkingIndicator();
-                            addMessage("I'm having trouble connecting right now. Please try again later or email us at hello.company.helpdesk@gmail.com for assistance.", 'ai error-message');
-                        }
-                    }, 500);
-                });
-            });
-
-            // Generate response using Google Gemini API with conversation history
-            async function generateGeminiResponse(history) {
-                const requestBody = {
-                    contents: history,
-                    generationConfig: {
-                        temperature: 0.7,
-                        topK: 40,
-                        topP: 0.95,
-                        maxOutputTokens: 1024,
-                    },
-                    safetySettings: [
-                        {
-                            category: "HARM_CATEGORY_HARASSMENT",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            // Generate response using OpenAI API
+            async function generateResponse(userMessage) {
+                try {
+                    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer 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'
                         },
-                        {
-                            category: "HARM_CATEGORY_HATE_SPEECH",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        }
-                    ]
-                };
+                        body: JSON.stringify({
+                            model: "gpt-3.5-turbo",
+                            messages: [{
+                                role: "system",
+                                content: "You are an AI assistant for Star Development, a web development company that offers premium systems starting at $4. You specialize in custom web applications for niche communities like roleplaying groups. Key services: CAD/MDT systems, department databases, logging systems. Support emails: hello.company.helpdesk@gmail.com (general), help.pro.tech.assist@gmail.com (technical). Be helpful and direct users to email support when needed."
+                            }, {
+                                role: "user",
+                                content: userMessage
+                            }],
+                            max_tokens: 150
+                        })
+                    });
 
-                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(requestBody)
-                });
+                    if (!response.ok) {
+                        throw new Error('API request failed');
+                    }
 
-                if (!response.ok) {
-                    throw new Error(`API request failed with status ${response.status}`);
-                }
-
-                const data = await response.json();
-                
-                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-                    return data.candidates[0].content.parts[0].text;
-                } else {
-                    throw new Error('Invalid response format from Gemini API');
+                    const data = await response.json();
+                    return data.choices[0].message.content;
+                } catch (error) {
+                    console.error('Error:', error);
+                    return "I'm having trouble connecting right now. Please email hello.company.helpdesk@gmail.com for assistance.";
                 }
             }
 
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(248, 249, 250, 0.98)';
-                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.08)';
-                } else {
-                    header.style.background = 'rgba(248, 249, 250, 0.95)';
-                    header.style.boxShadow = 'none';
-                }
-            });
-
-            // Smooth scrolling for anchor links
+            // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }
-                });
-            });
-
-            // Animation on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for animation
-            const animatedElements = document.querySelectorAll('.feature-card, .system-card, .stat-card');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-
-            // Add hover effect to CTA buttons
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-
-            // Add hover effect to system images
-            document.querySelectorAll('.system-visual img').forEach(img => {
-                img.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                
-                img.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
                 });
             });
         });
