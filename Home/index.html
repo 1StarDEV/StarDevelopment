@@ -180,11 +180,244 @@
             align-items: center;
         }
 
-        .system-preview {
+        /* CAD Demo Container */
+        .cad-demo {
             width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            height: 400px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
             border: 1px solid var(--accent-silver);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .demo-screen {
+            width: 100%;
+            height: 100%;
+            background: #1a1d23;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            height: 40px;
+            background: #2d3748;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        .demo-title {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .demo-content {
+            padding: 1.5rem;
+            height: calc(100% - 40px);
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 1rem;
+        }
+
+        .units-panel {
+            background: #2d3748;
+            border-radius: 8px;
+            padding: 1rem;
+            color: white;
+        }
+
+        .units-panel h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #cbd5e0;
+        }
+
+        .unit-list {
+            list-style: none;
+        }
+
+        .unit-item {
+            padding: 0.7rem;
+            margin-bottom: 0.5rem;
+            background: #4a5568;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .unit-item.active {
+            background: #3182ce;
+        }
+
+        .unit-status {
+            font-size: 0.75rem;
+            color: #a0aec0;
+        }
+
+        .map-container {
+            background: #2d3748;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 85, 104, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 85, 104, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .incident-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #e53e3e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .unit-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #3182ce;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .incident-info {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(45, 55, 72, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            max-width: 250px;
+        }
+
+        .details-panel {
+            background: #2d3748;
+            border-radius: 8px;
+            padding: 1rem;
+            color: white;
+        }
+
+        .details-panel h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #cbd5e0;
+        }
+
+        .incident-details {
+            background: #4a5568;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .detail-label {
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .demo-btn {
+            background: #4a5568;
+            border: none;
+            color: white;
+            padding: 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .demo-btn:hover {
+            background: #3182ce;
+        }
+
+        /* Animated Cursor */
+        .demo-cursor {
+            position: absolute;
+            width: 16px;
+            height: 24px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 24" fill="white"><path d="M0 0 L16 8 L10 12 L14 24 L8 20 L0 24 Z"/></svg>');
+            z-index: 100;
+            pointer-events: none;
+            transition: transform 0.1s;
+        }
+
+        .cursor-click {
+            animation: click 0.3s;
+        }
+
+        /* Typing Animation */
+        .typing-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .typing-text {
+            display: inline;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--text-dark);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes click {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* Features */
@@ -383,198 +616,6 @@
             font-size: 0.85rem;
         }
 
-        /* Professional AI Assistant */
-        .ai-assistant {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 1000;
-        }
-
-        .ai-toggle {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: var(--text-dark);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: none;
-        }
-
-        .ai-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        .ai-chat {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 360px;
-            height: 420px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow-hover);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: var(--transition);
-            border: 1px solid var(--accent-silver);
-        }
-
-        .ai-chat.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .ai-header {
-            background: var(--text-dark);
-            color: white;
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .ai-title {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .ai-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .ai-messages {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .message {
-            max-width: 85%;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            line-height: 1.5;
-            font-size: 0.9rem;
-            word-wrap: break-word;
-        }
-
-        .message.ai {
-            background: var(--primary-silver);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-        }
-
-        .message.user {
-            background: var(--text-dark);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .ai-input-container {
-            padding: 1rem;
-            border-top: 1px solid var(--accent-silver);
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .ai-input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--accent-silver);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .ai-input:focus {
-            border-color: var(--darker-silver);
-        }
-
-        .ai-send {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            background: var(--text-dark);
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .ai-send:hover {
-            background: #000;
-        }
-
-        .ai-send:disabled {
-            background: var(--accent-silver);
-            cursor: not-allowed;
-        }
-
-        .typing {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1rem;
-            background: var(--primary-silver);
-            border-radius: 8px;
-            align-self: flex-start;
-            max-width: 85%;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            border-bottom-left-radius: 2px;
-        }
-
-        .typing-dots {
-            display: flex;
-            gap: 0.3rem;
-        }
-
-        .typing-dots span {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--text-light);
-            animation: typing 1.4s infinite ease-in-out;
-        }
-
-        .typing-dots span:nth-child(1) { animation-delay: 0s; }
-        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-3px);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -595,9 +636,17 @@
                 display: none;
             }
 
-            .ai-chat {
-                width: 320px;
-                right: -10px;
+            .cad-demo {
+                height: 300px;
+            }
+
+            .demo-content {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .units-panel, .details-panel {
+                display: none;
             }
         }
     </style>
@@ -626,8 +675,14 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Premium Web Systems at Unprecedented Prices</h1>
-                <p>Star Development specializes in creating sophisticated, custom web applications for niche communities and small businesses.</p>
+                <h1>
+                    <span class="typing-container">
+                        <span class="typing-text">Premium 911 CAD Systems</span>
+                        <span class="typing-cursor"></span>
+                    </span>
+                    <br>at Unprecedented Prices
+                </h1>
+                <p>Star Development specializes in creating sophisticated, custom CAD/MDT systems for roleplay communities and emergency services.</p>
                 <div class="price-tag">
                     <i class="fas fa-tag"></i>
                     <span>Starting at $4</span>
@@ -635,7 +690,67 @@
                 <button class="cta-button">Explore Systems</button>
             </div>
             <div class="hero-visual">
-                <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="System Preview" class="system-preview">
+                <div class="cad-demo">
+                    <div class="demo-screen">
+                        <div class="demo-header">
+                            <div class="demo-title">Star Development - 911 CAD System</div>
+                        </div>
+                        <div class="demo-content">
+                            <div class="units-panel">
+                                <h3>Active Units</h3>
+                                <ul class="unit-list">
+                                    <li class="unit-item">
+                                        <span>1A12</span>
+                                        <span class="unit-status">Available</span>
+                                    </li>
+                                    <li class="unit-item active">
+                                        <span>1B45</span>
+                                        <span class="unit-status">En Route</span>
+                                    </li>
+                                    <li class="unit-item">
+                                        <span>1C23</span>
+                                        <span class="unit-status">On Scene</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="map-container">
+                                <div class="map-grid"></div>
+                                <div class="incident-marker" style="top: 40%; left: 30%;"></div>
+                                <div class="unit-marker" style="top: 50%; left: 40%;"></div>
+                                <div class="incident-info">
+                                    <strong>Incident #4582</strong><br>
+                                    Traffic Collision<br>
+                                    Main St & 5th Ave<br>
+                                    Priority: Medium
+                                </div>
+                            </div>
+                            <div class="details-panel">
+                                <h3>Incident Details</h3>
+                                <div class="incident-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Type:</span> Traffic Collision
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Location:</span> Main St & 5th Ave
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Priority:</span> Medium
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Units:</span> 1B45
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="demo-btn">Dispatch</button>
+                                    <button class="demo-btn">Update</button>
+                                    <button class="demo-btn">Clear</button>
+                                    <button class="demo-btn">Log</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="demo-cursor"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -759,173 +874,100 @@
         </div>
     </footer>
 
-    <!-- Professional AI Assistant -->
-    <div class="ai-assistant">
-        <button class="ai-toggle">
-            <i class="fas fa-robot"></i>
-        </button>
-        <div class="ai-chat">
-            <div class="ai-header">
-                <div class="ai-title">
-                    <i class="fas fa-robot"></i>
-                    AI Assistant
-                </div>
-                <button class="ai-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="ai-messages">
-                <div class="message ai">
-                    Hello! I can answer questions about our services, systems, and pricing. How can I help you today?
-                </div>
-            </div>
-            <div class="ai-input-container">
-                <input type="text" class="ai-input" placeholder="Ask me anything...">
-                <button class="ai-send">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Professional AI Assistant with DeepSeek API
+        // CAD Demo Animation
         document.addEventListener('DOMContentLoaded', function() {
-            const aiToggle = document.querySelector('.ai-toggle');
-            const aiChat = document.querySelector('.ai-chat');
-            const aiClose = document.querySelector('.ai-close');
-            const aiInput = document.querySelector('.ai-input');
-            const aiSend = document.querySelector('.ai-send');
-            const aiMessages = document.querySelector('.ai-messages');
-
-            // Toggle chat
-            aiToggle.addEventListener('click', function() {
-                aiChat.classList.toggle('active');
-            });
-
-            // Close chat
-            aiClose.addEventListener('click', function() {
-                aiChat.classList.remove('active');
-            });
-
-            // Send message function
-            async function sendMessage() {
-                const message = aiInput.value.trim();
-                if (message === '') return;
-
-                addMessage(message, 'user');
-                aiInput.value = '';
-                aiSend.disabled = true;
-
-                // Show typing indicator
-                showTyping();
-
-                try {
-                    // Generate AI response using DeepSeek API
-                    const response = await generateDeepSeekResponse(message);
-                    removeTyping();
-                    addMessage(response, 'ai');
-                } catch (error) {
-                    console.error('Error:', error);
-                    removeTyping();
-                    addMessage("I'm having trouble connecting right now. Please email hello.company.helpdesk@gmail.com for assistance.", 'ai');
-                } finally {
-                    aiSend.disabled = false;
+            const cursor = document.querySelector('.demo-cursor');
+            const demoButtons = document.querySelectorAll('.demo-btn');
+            const unitItems = document.querySelectorAll('.unit-item');
+            const typingText = document.querySelector('.typing-text');
+            
+            // Typing animation for hero text
+            const textToType = "Premium 911 CAD Systems";
+            let charIndex = 0;
+            
+            function typeText() {
+                if (charIndex < textToType.length) {
+                    typingText.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 100);
                 }
             }
-
-            // Send on button click
-            aiSend.addEventListener('click', sendMessage);
-
-            // Send on Enter key
-            aiInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-
-            // Add message to chat
-            function addMessage(text, sender) {
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message', sender);
-                messageElement.textContent = text;
-                aiMessages.appendChild(messageElement);
-                aiMessages.scrollTop = aiMessages.scrollHeight;
-            }
-
-            // Show typing indicator
-            function showTyping() {
-                const typingElement = document.createElement('div');
-                typingElement.classList.add('typing');
-                typingElement.innerHTML = `
-                    AI is typing
-                    <div class="typing-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                `;
-                aiMessages.appendChild(typingElement);
-                aiMessages.scrollTop = aiMessages.scrollHeight;
-            }
-
-            // Remove typing indicator
-            function removeTyping() {
-                const typingElement = document.querySelector('.typing');
-                if (typingElement) {
-                    typingElement.remove();
-                }
-            }
-
-            // Generate AI response using DeepSeek API
-            async function generateDeepSeekResponse(userMessage) {
-                try {
-                    const response = await fetch('https://api.deepseek.com/chat/completions', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer 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'
-                        },
-                        body: JSON.stringify({
-                            model: "deepseek-chat",
-                            messages: [
-                                {
-                                    role: "system",
-                                    content: `You are an AI assistant for Star Development, a web development company that offers premium systems starting at $4. 
-                                    Key information:
-                                    - Company: Star Development
-                                    - Pricing: Starts at $4 for any site or system
-                                    - Specialization: Complex web applications for niche communities (especially roleplaying groups)
-                                    - Services: Simple websites and custom "Systems" (web applications)
-                                    - Systems: 911 CAD/MDT, Department Database, Logging System
-                                    - Target: Online roleplaying communities, small businesses
-                                    - Support: General (hello.company.helpdesk@gmail.com), Technical (help.pro.tech.assist@gmail.com)
-                                    - Social: @1StarDEV on Twitter, 1stardev on Instagram, Discord community
-                                    
-                                    Be professional, helpful, and direct users to email support for specific technical queries.`
-                                },
-                                {
-                                    role: "user",
-                                    content: userMessage
-                                }
-                            ],
-                            max_tokens: 200,
-                            temperature: 0.7
-                        })
+            
+            // Start typing animation after a short delay
+            setTimeout(() => {
+                typingText.textContent = '';
+                typeText();
+            }, 1000);
+            
+            // Cursor animation sequence
+            function startDemo() {
+                // Move cursor to unit list
+                setTimeout(() => {
+                    moveCursor(60, 120, () => {
+                        cursor.classList.add('cursor-click');
+                        setTimeout(() => {
+                            cursor.classList.remove('cursor-click');
+                            unitItems[1].classList.add('active');
+                        }, 300);
                     });
-
-                    if (!response.ok) {
-                        throw new Error(`API error: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    return data.choices[0].message.content;
-                } catch (error) {
-                    console.error('DeepSeek API Error:', error);
-                    throw error;
-                }
+                }, 2000);
+                
+                // Move cursor to map
+                setTimeout(() => {
+                    moveCursor(350, 200, () => {
+                        cursor.classList.add('cursor-click');
+                        setTimeout(() => {
+                            cursor.classList.remove('cursor-click');
+                        }, 300);
+                    });
+                }, 4000);
+                
+                // Move cursor to dispatch button
+                setTimeout(() => {
+                    moveCursor(700, 320, () => {
+                        cursor.classList.add('cursor-click');
+                        setTimeout(() => {
+                            cursor.classList.remove('cursor-click');
+                            // Change unit status
+                            unitItems[1].querySelector('.unit-status').textContent = 'On Scene';
+                        }, 300);
+                    });
+                }, 6000);
+                
+                // Reset animation after completion
+                setTimeout(() => {
+                    unitItems[1].classList.remove('active');
+                    unitItems[1].querySelector('.unit-status').textContent = 'En Route';
+                    startDemo();
+                }, 10000);
             }
-
+            
+            function moveCursor(x, y, callback) {
+                cursor.style.transition = 'all 1s ease-in-out';
+                cursor.style.left = x + 'px';
+                cursor.style.top = y + 'px';
+                
+                cursor.addEventListener('transitionend', function handler() {
+                    cursor.removeEventListener('transitionend', handler);
+                    if (callback) callback();
+                });
+            }
+            
+            // Start the demo animation
+            startDemo();
+            
+            // Button hover effects
+            demoButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
