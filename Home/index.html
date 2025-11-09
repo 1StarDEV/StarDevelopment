@@ -19,6 +19,8 @@
             --transition: all 0.3s ease;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --star-gold: #ffd700;
+            --highlight: #ff6b6b;
         }
 
         * {
@@ -37,6 +39,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             font-weight: 400;
+            overflow-x: hidden;
         }
 
         /* Header */
@@ -159,6 +162,23 @@
             font-weight: 400;
         }
 
+        .highlight {
+            color: var(--highlight);
+            position: relative;
+        }
+
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--star-gold);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
         .price-tag {
             display: inline-flex;
             align-items: center;
@@ -180,197 +200,71 @@
             align-items: center;
         }
 
-        /* CAD Demo Container */
-        .cad-demo {
+        /* Floating Elements Animation */
+        .floating-elements {
+            position: relative;
             width: 100%;
             height: 400px;
+            perspective: 1000px;
+        }
+
+        .floating-card {
+            position: absolute;
+            width: 200px;
+            height: 120px;
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: var(--shadow-hover);
             border: 1px solid var(--accent-silver);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .demo-screen {
-            width: 100%;
-            height: 100%;
-            background: #1a1d23;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .demo-header {
-            height: 40px;
-            background: #2d3748;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 0 1rem;
-            border-bottom: 1px solid #4a5568;
-        }
-
-        .demo-title {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .demo-content {
-            padding: 1.5rem;
-            height: calc(100% - 40px);
-            display: grid;
-            grid-template-columns: 250px 1fr 300px;
-            gap: 1rem;
-        }
-
-        .units-panel {
-            background: #2d3748;
-            border-radius: 8px;
             padding: 1rem;
-            color: white;
-        }
-
-        .units-panel h3 {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: #cbd5e0;
-        }
-
-        .unit-list {
-            list-style: none;
-        }
-
-        .unit-item {
-            padding: 0.7rem;
-            margin-bottom: 0.5rem;
-            background: #4a5568;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
             transition: var(--transition);
+            opacity: 0.9;
         }
 
-        .unit-item.active {
-            background: #3182ce;
+        .floating-card:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
         }
 
-        .unit-status {
-            font-size: 0.75rem;
-            color: #a0aec0;
+        .floating-card:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation: float 10s ease-in-out infinite 1s;
         }
 
-        .map-container {
-            background: #2d3748;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
+        .floating-card:nth-child(3) {
+            bottom: 15%;
+            left: 20%;
+            animation: float 9s ease-in-out infinite 0.5s;
         }
 
-        .map-grid {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(74, 85, 104, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(74, 85, 104, 0.3) 1px, transparent 1px);
-            background-size: 20px 20px;
+        .floating-card:nth-child(4) {
+            bottom: 10%;
+            right: 10%;
+            animation: float 11s ease-in-out infinite 1.5s;
         }
 
-        .incident-marker {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #e53e3e;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
+        .floating-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 10;
+            opacity: 1;
         }
 
-        .unit-marker {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: #3182ce;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .incident-info {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            background: rgba(45, 55, 72, 0.9);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            max-width: 250px;
-        }
-
-        .details-panel {
-            background: #2d3748;
-            border-radius: 8px;
-            padding: 1rem;
-            color: white;
-        }
-
-        .details-panel h3 {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: #cbd5e0;
-        }
-
-        .incident-details {
-            background: #4a5568;
-            border-radius: 4px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .detail-item {
+        .card-icon {
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            font-size: 0.85rem;
+            color: var(--darker-silver);
         }
 
-        .detail-label {
-            color: #a0aec0;
-            font-weight: 500;
-        }
-
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-        }
-
-        .demo-btn {
-            background: #4a5568;
-            border: none;
-            color: white;
-            padding: 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .demo-btn:hover {
-            background: #3182ce;
-        }
-
-        /* Animated Cursor */
-        .demo-cursor {
-            position: absolute;
-            width: 16px;
-            height: 24px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 24" fill="white"><path d="M0 0 L16 8 L10 12 L14 24 L8 20 L0 24 Z"/></svg>');
-            z-index: 100;
-            pointer-events: none;
-            transition: transform 0.1s;
-        }
-
-        .cursor-click {
-            animation: click 0.3s;
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
         }
 
         /* Typing Animation */
@@ -391,33 +285,6 @@
             margin-left: 2px;
             animation: blink 1s infinite;
             vertical-align: middle;
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes click {
-            0% { transform: scale(1); }
-            50% { transform: scale(0.8); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
         }
 
         /* Features */
@@ -460,6 +327,25 @@
             transition: var(--transition);
             border: 1px solid var(--accent-silver);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--star-gold), var(--highlight));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover:before {
+            transform: scaleX(1);
         }
 
         .feature-card:hover {
@@ -504,6 +390,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
         }
 
         .system-card:hover {
@@ -514,12 +401,18 @@
         .system-visual {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
 
         .system-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .system-card:hover .system-visual img {
+            transform: scale(1.05);
         }
 
         .system-content {
@@ -538,17 +431,97 @@
             font-size: 0.95rem;
         }
 
+        /* Process */
+        .process {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-steps:before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--accent-silver);
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-silver);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            border: 2px solid var(--accent-silver);
+            transition: var(--transition);
+        }
+
+        .step:hover .step-number {
+            background: var(--text-dark);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
         /* CTA */
         .cta-section {
             padding: 6rem 2rem;
             background: var(--text-dark);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0) 70%);
+            animation: rotate 20s linear infinite;
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-section h2 {
@@ -616,6 +589,33 @@
             font-size: 0.85rem;
         }
 
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -636,16 +636,21 @@
                 display: none;
             }
 
-            .cad-demo {
+            .floating-elements {
                 height: 300px;
             }
 
-            .demo-content {
-                grid-template-columns: 1fr;
-                padding: 1rem;
+            .floating-card {
+                width: 140px;
+                height: 90px;
             }
 
-            .units-panel, .details-panel {
+            .process-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .process-steps:before {
                 display: none;
             }
         }
@@ -663,7 +668,7 @@
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#systems">Systems</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#process">Process</a></li>
                     <li><a href="#support">Support</a></li>
                 </ul>
             </nav>
@@ -677,78 +682,43 @@
             <div class="hero-text">
                 <h1>
                     <span class="typing-container">
-                        <span class="typing-text">Premium 911 CAD Systems</span>
+                        <span class="typing-text">The <span class="highlight">Best</span> Sites</span>
                         <span class="typing-cursor"></span>
                     </span>
                     <br>at Unprecedented Prices
                 </h1>
-                <p>Star Development specializes in creating sophisticated, custom CAD/MDT systems for roleplay communities and emergency services.</p>
+                <p>Star Development specializes in creating sophisticated, custom web systems for communities and businesses of all types.</p>
                 <div class="price-tag">
                     <i class="fas fa-tag"></i>
                     <span>Starting at $4</span>
                 </div>
-                <button class="cta-button">Explore Systems</button>
+                <button class="cta-button">Explore Services</button>
             </div>
             <div class="hero-visual">
-                <div class="cad-demo">
-                    <div class="demo-screen">
-                        <div class="demo-header">
-                            <div class="demo-title">Star Development - 911 CAD System</div>
+                <div class="floating-elements">
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <div class="demo-content">
-                            <div class="units-panel">
-                                <h3>Active Units</h3>
-                                <ul class="unit-list">
-                                    <li class="unit-item">
-                                        <span>1A12</span>
-                                        <span class="unit-status">Available</span>
-                                    </li>
-                                    <li class="unit-item active">
-                                        <span>1B45</span>
-                                        <span class="unit-status">En Route</span>
-                                    </li>
-                                    <li class="unit-item">
-                                        <span>1C23</span>
-                                        <span class="unit-status">On Scene</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="map-container">
-                                <div class="map-grid"></div>
-                                <div class="incident-marker" style="top: 40%; left: 30%;"></div>
-                                <div class="unit-marker" style="top: 50%; left: 40%;"></div>
-                                <div class="incident-info">
-                                    <strong>Incident #4582</strong><br>
-                                    Traffic Collision<br>
-                                    Main St & 5th Ave<br>
-                                    Priority: Medium
-                                </div>
-                            </div>
-                            <div class="details-panel">
-                                <h3>Incident Details</h3>
-                                <div class="incident-details">
-                                    <div class="detail-item">
-                                        <span class="detail-label">Type:</span> Traffic Collision
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Location:</span> Main St & 5th Ave
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Priority:</span> Medium
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Units:</span> 1B45
-                                    </div>
-                                </div>
-                                <div class="action-buttons">
-                                    <button class="demo-btn">Dispatch</button>
-                                    <button class="demo-btn">Update</button>
-                                    <button class="demo-btn">Clear</button>
-                                    <button class="demo-btn">Log</button>
-                                </div>
-                            </div>
+                        <div class="card-title">E-Commerce</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-database"></i>
                         </div>
-                        <div class="demo-cursor"></div>
+                        <div class="card-title">Database Systems</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-title">Analytics</div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-title">Community Platforms</div>
                     </div>
                 </div>
             </div>
@@ -767,7 +737,7 @@
                     <i class="fas fa-bullseye"></i>
                 </div>
                 <h3>Hyper-Specialization</h3>
-                <p>We focus exclusively on building complex, database-driven web applications for specific communities.</p>
+                <p>We focus exclusively on building complex, database-driven web applications for specific communities and businesses.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -781,7 +751,7 @@
                     <i class="fas fa-users"></i>
                 </div>
                 <h3>Community Focused</h3>
-                <p>Deep understanding of online roleplaying communities with specific needs and limited budgets.</p>
+                <p>Deep understanding of online communities with specific needs and limited budgets.</p>
             </div>
         </div>
     </section>
@@ -795,33 +765,63 @@
         <div class="systems-grid">
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/image_2025-11-08_164047049.png?updatedAt=1762641655179" alt="CAD/MDT System">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-Commerce System">
                 </div>
                 <div class="system-content">
-                    <h3>911 CAD/MDT System</h3>
-                    <p>Comprehensive dispatch and records management for roleplay communities with live maps and unit tracking.</p>
+                    <h3>E-Commerce Platforms</h3>
+                    <p>Complete online store solutions with inventory management, payment processing, and customer analytics.</p>
                     <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/police-logs-arrest.jpg?updatedAt=1762641654888" alt="Department Database">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Community Platform">
                 </div>
                 <div class="system-content">
-                    <h3>Department Database</h3>
-                    <p>Centralized records management for government factions with employee rosters and legal statutes.</p>
+                    <h3>Community Platforms</h3>
+                    <p>Custom social networks and community hubs with user profiles, forums, and moderation tools.</p>
                     <button class="cta-button">View Details</button>
                 </div>
             </div>
             <div class="system-card">
                 <div class="system-visual">
-                    <img src="https://ik.imagekit.io/tycncf0zq0/dc1d6ec-admin_audit_log.png?updatedAt=1762641655175" alt="Logging System">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Database System">
                 </div>
                 <div class="system-content">
-                    <h3>Logging System</h3>
-                    <p>Automated audit trails and records for transparency, tracking administrative actions and transactions.</p>
+                    <h3>Database Systems</h3>
+                    <p>Custom database solutions for managing complex data relationships with intuitive interfaces.</p>
                     <button class="cta-button">View Details</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <h2>Our Simple Process</h2>
+            <p>Getting your custom system has never been easier</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Consultation</h3>
+                <p>We discuss your specific needs and requirements to understand your project scope.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Development</h3>
+                <p>Our team builds your custom system using proven frameworks and best practices.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Testing</h3>
+                <p>We thoroughly test your system to ensure it meets all requirements and functions perfectly.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Delivery</h3>
+                <p>Your complete system is delivered, with full documentation and support.</p>
             </div>
         </div>
     </section>
@@ -829,8 +829,8 @@
     <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready to Transform Your Community?</h2>
-            <p>Join hundreds of satisfied communities who have enhanced their experience with our custom systems.</p>
+            <h2>Ready to Transform Your Online Presence?</h2>
+            <p>Join hundreds of satisfied clients who have enhanced their experience with our custom systems.</p>
             <button class="cta-button">Start Your Project</button>
         </div>
     </section>
@@ -840,14 +840,14 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Star Development</h3>
-                <p>Premium web systems at unprecedented prices. Specializing in custom applications for niche communities.</p>
+                <p>Premium web systems at unprecedented prices. Specializing in custom applications for niche communities and businesses.</p>
             </div>
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul>
                     <li><a href="#">Simple Websites</a></li>
                     <li><a href="#">Custom Systems</a></li>
-                    <li><a href="#">CAD/MDT Systems</a></li>
+                    <li><a href="#">E-Commerce</a></li>
                     <li><a href="#">Database Solutions</a></li>
                 </ul>
             </div>
@@ -875,98 +875,35 @@
     </footer>
 
     <script>
-        // CAD Demo Animation
+        // Typing animation for hero text
         document.addEventListener('DOMContentLoaded', function() {
-            const cursor = document.querySelector('.demo-cursor');
-            const demoButtons = document.querySelectorAll('.demo-btn');
-            const unitItems = document.querySelectorAll('.unit-item');
             const typingText = document.querySelector('.typing-text');
-            
-            // Typing animation for hero text
-            const textToType = "Premium 911 CAD Systems";
-            let charIndex = 0;
+            const originalText = typingText.innerHTML;
             
             function typeText() {
-                if (charIndex < textToType.length) {
-                    typingText.textContent += textToType.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeText, 100);
+                typingText.innerHTML = '';
+                let charIndex = 0;
+                
+                function typeChar() {
+                    if (charIndex < originalText.length) {
+                        typingText.innerHTML += originalText.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeChar, 100);
+                    } else {
+                        // Restart animation after a delay
+                        setTimeout(() => {
+                            typeText();
+                        }, 3000);
+                    }
                 }
+                
+                typeChar();
             }
             
             // Start typing animation after a short delay
             setTimeout(() => {
-                typingText.textContent = '';
                 typeText();
             }, 1000);
-            
-            // Cursor animation sequence
-            function startDemo() {
-                // Move cursor to unit list
-                setTimeout(() => {
-                    moveCursor(60, 120, () => {
-                        cursor.classList.add('cursor-click');
-                        setTimeout(() => {
-                            cursor.classList.remove('cursor-click');
-                            unitItems[1].classList.add('active');
-                        }, 300);
-                    });
-                }, 2000);
-                
-                // Move cursor to map
-                setTimeout(() => {
-                    moveCursor(350, 200, () => {
-                        cursor.classList.add('cursor-click');
-                        setTimeout(() => {
-                            cursor.classList.remove('cursor-click');
-                        }, 300);
-                    });
-                }, 4000);
-                
-                // Move cursor to dispatch button
-                setTimeout(() => {
-                    moveCursor(700, 320, () => {
-                        cursor.classList.add('cursor-click');
-                        setTimeout(() => {
-                            cursor.classList.remove('cursor-click');
-                            // Change unit status
-                            unitItems[1].querySelector('.unit-status').textContent = 'On Scene';
-                        }, 300);
-                    });
-                }, 6000);
-                
-                // Reset animation after completion
-                setTimeout(() => {
-                    unitItems[1].classList.remove('active');
-                    unitItems[1].querySelector('.unit-status').textContent = 'En Route';
-                    startDemo();
-                }, 10000);
-            }
-            
-            function moveCursor(x, y, callback) {
-                cursor.style.transition = 'all 1s ease-in-out';
-                cursor.style.left = x + 'px';
-                cursor.style.top = y + 'px';
-                
-                cursor.addEventListener('transitionend', function handler() {
-                    cursor.removeEventListener('transitionend', handler);
-                    if (callback) callback();
-                });
-            }
-            
-            // Start the demo animation
-            startDemo();
-            
-            // Button hover effects
-            demoButtons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
             
             // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -981,6 +918,48 @@
                     }
                 });
             });
+            
+            // Add scroll animation to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            const processSteps = document.querySelectorAll('.step');
+            
+            function checkScroll() {
+                featureCards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight * 0.9) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+                
+                processSteps.forEach(step => {
+                    const stepTop = step.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (stepTop < windowHeight * 0.85) {
+                        step.style.opacity = '1';
+                        step.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initialize elements with hidden state
+            featureCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            processSteps.forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
         });
     </script>
 </body>
